@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
+import Sidebar from "./components/sidebar/Sidebar";
 import ThemeProvider from "./providers/ThemeProvider";
 import { ThemeContextProvider } from "./context/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Lumina Blog",
-  description: "Wicc Blog App",
+  title: "Dashboard",
+  description: "Wicc Dashboard App",
 };
 
 export default function RootLayout({
@@ -24,8 +24,8 @@ export default function RootLayout({
         <ThemeContextProvider>
           <ThemeProvider>
             <Navbar />
+            <Sidebar />
             {children}
-            <Footer />
           </ThemeProvider>
         </ThemeContextProvider>
       </body>
