@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import ThemeProvider from "./providers/ThemeProvider";
 import { ThemeContextProvider } from "./context/ThemeContext";
+import { ContextProvider } from "./context/ContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,9 +24,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeContextProvider>
           <ThemeProvider>
-            <Navbar />
-            <Sidebar />
-            {children}
+            <ContextProvider>
+              <div className="flex ">
+                <Sidebar />
+                <div className="w-full">
+                  <Navbar />
+                  {children}
+                </div>
+              </div>
+            </ContextProvider>
           </ThemeProvider>
         </ThemeContextProvider>
       </body>
