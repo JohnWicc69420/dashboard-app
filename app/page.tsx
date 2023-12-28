@@ -3,6 +3,7 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { BsBoxSeam } from "react-icons/bs";
 import { FiBarChart } from "react-icons/fi";
 import { TiArrowRepeat } from "react-icons/ti";
+
 import StatBox from "./components/statBox/StatBox";
 
 export const data = [
@@ -47,11 +48,12 @@ export const data = [
     bg: "bg-[#EAF6F3]",
   },
 ];
-
 export default async function Home() {
   return (
     <>
-      <div className={` bg-[#F9F9F9] w-full h-full md:pl-[325px]`}>
+      <div
+        className={` bg-[#F9F9F9] transition-all dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
+      >
         <div className="top flex items-center gap-4 pt-16 flex-col xl:flex-row">
           <div>
             <Earnings />

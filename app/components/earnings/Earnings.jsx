@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Earnings() {
   return (
     <>
-      <div className="bg-[#fff] rounded-xl relative overflow-hidden shadow-lg">
+      <div className="bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] rounded-xl relative overflow-hidden shadow-lg">
         <Image
           className=" w-[300px] h-[150px] xl:h-[170px] object-cover"
           src="/welcome-bg.svg"
@@ -22,7 +22,7 @@ export default function Earnings() {
             </div>
             <span
               className=" text-[#fff] flex items-center justify-center
-            text-sm bg-[#03B3D8] w-[50px] h-[50px] rounded-full"
+            text-xl bg-[#03B3D8] w-[50px] h-[50px] rounded-full"
             >
               $
             </span>

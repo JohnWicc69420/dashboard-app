@@ -12,7 +12,7 @@ export default function StatBox({
   return (
     <>
       <div
-        className="bg-[#fff] flex flex-col items-start gap-2 p-4
+        className="bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] flex flex-col items-start gap-2 p-4
        rounded-xl h-[150px] xl:h-[170px] w-[150px] xl:w-[200px] shadow-lg"
       >
         <span className={`p-5 ${bg} rounded-full`}>
