@@ -18,10 +18,13 @@ export default function Navbar() {
   };
 
   const textColor = useSelector((state) => state.color.selectedTextColor);
+  const openSettings = useSelector((state) => state.settings.openSettings);
   return (
     <>
       <div
-        className={` shadow-md transition-colors sticky top-0 flex 
+        className={`${
+          openSettings ? " brightness-50" : ""
+        } shadow-md transition-colors sticky top-0 flex 
         dark:bg-[#1E2228] ${textColor}
          justify-between py-3 px-8 
       items-center bg-[#F9F9F9] h-14 z-40 md:pl-[285px] ${

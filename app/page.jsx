@@ -9,8 +9,8 @@ import BarChart from "./components/charts/BarChart";
 import StatBox from "./components/statBox/StatBox";
 import Settings from "./components/settings/Settings";
 import { IoSettingsOutline } from "react-icons/io5";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { setOpenSettings } from "@/redux/features/settingsSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 export const data = [
   {
@@ -56,25 +56,29 @@ export const data = [
 ];
 export default function Home() {
   const selectedColor = useSelector((state) => state.color.selectedBgColor);
+  const openSettings = useSelector((state) => state.settings.openSettings);
 
-  const [openSettings, setOpenSettings] = useState(false);
-  const handleSettings = () => {
-    setOpenSettings((prevState) => !prevState);
+  const dispatch = useDispatch();
+  const handleOpenSettings = () => {
+    dispatch(setOpenSettings(!openSettings));
   };
+
   return (
     <>
+      <span
+        onClick={handleOpenSettings}
+        className={`cursor-pointer fixed bottom-4 right-4 text-[#fff] flex items-center justify-center
+            text-2xl ${selectedColor} w-[50px] h-[50px] rounded-full`}
+      >
+        <IoSettingsOutline />
+      </span>
+      {openSettings && <Settings handleSettings={handleOpenSettings} />}
       <div
-        className={` bg-[#F9F9F9] transition-all min-h-[100vh] dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
+        className={`${
+          openSettings ? "brightness-50" : ""
+        } bg-[#F9F9F9] transition-colors min-h-[100vh] dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
       >
         <div className="top flex items-center gap-4 pt-16 flex-col xl:flex-row">
-          <span
-            onClick={handleSettings}
-            className={`cursor-pointer fixed bottom-4 right-4 text-[#fff] flex items-center justify-center
-            text-2xl ${selectedColor} w-[50px] h-[50px] rounded-full`}
-          >
-            <IoSettingsOutline />
-          </span>
-          {openSettings && <Settings handleSettings={handleSettings} />}
           <div>
             <Earnings />
           </div>
