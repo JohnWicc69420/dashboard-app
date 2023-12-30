@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export default function Earnings() {
+  const bgColor = "bg-[#108EF3]";
   return (
     <>
       <div className="bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] rounded-xl relative overflow-hidden shadow-lg">
@@ -21,13 +22,15 @@ export default function Earnings() {
               <span className=" text-xl font-medium">$63,448.78</span>
             </div>
             <span
-              className=" text-[#fff] flex items-center justify-center
-            text-xl bg-[#03B3D8] w-[50px] h-[50px] rounded-full"
+              className={` text-[#fff] flex items-center justify-center
+            text-xl ${bgColor} w-[50px] h-[50px] rounded-full`}
             >
               $
             </span>
           </div>
-          <span className="mt-3 w-[120px] xl:mt-5 text-center text-[#fff] text-sm bg-[#03B3D8] py-3 px-2 rounded-xl">
+          <span
+            className={`mt-3 w-[120px] xl:mt-5 text-center text-[#fff] text-sm ${bgColor} py-3 px-2 rounded-xl`}
+          >
             Download
           </span>
         </div>

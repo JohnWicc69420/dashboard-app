@@ -6,6 +6,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import ThemeProvider from "./providers/ThemeProvider";
 import { ThemeContextProvider } from "./context/ThemeContext";
 import { ContextProvider } from "./context/ContextProvider";
+import { ReduxProvider } from "../redux/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,13 +26,15 @@ export default function RootLayout({
         <ThemeContextProvider>
           <ThemeProvider>
             <ContextProvider>
-              <div className="flex ">
-                <Sidebar />
-                <div className="w-full">
-                  <Navbar />
-                  {children}
+              <ReduxProvider>
+                <div className="flex ">
+                  <Sidebar />
+                  <div className="w-full">
+                    <Navbar />
+                    {children}
+                  </div>
                 </div>
-              </div>
+              </ReduxProvider>
             </ContextProvider>
           </ThemeProvider>
         </ThemeContextProvider>

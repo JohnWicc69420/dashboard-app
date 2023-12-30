@@ -14,7 +14,7 @@ const SidebarBox = ({ title, icon, bgColor }) => {
         >
           <span
             className={` text-sm transition-all ${
-              bgColor !== "null" ? ` text-[#fff] text-lg` : ""
+              bgColor !== "null" ? ` text-[#fff] text-xl` : ""
             }`}
           >
             {icon}

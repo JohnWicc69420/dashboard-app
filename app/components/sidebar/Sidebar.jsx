@@ -8,7 +8,7 @@ import SidebarBox from "./SidebarBox";
 export default function Sidebar() {
   const { openSidebar } = useContext(Context);
   const [selectedBoxId, setSelectedBoxId] = useState(data[1].id);
-  const bgColor = "bg-[#01B2D5]";
+  const bgColor = "bg-[#108EF3]";
 
   const handleBoxClick = (boxId) => {
     const clickedBox = data.find((item) => item.id === boxId);
@@ -20,9 +20,10 @@ export default function Sidebar() {
   return (
     <>
       <div
-        className={`bg-[#fff] dark:bg-[#33373D] shadow-md md:w-[260px] w-[200px] h-[100vh] p-4 z-50
-       flex flex-col gap-4 absolute transition-all md:translate-x-[0px] ${
-         openSidebar ? "translate-x-[0px]" : "translate-x-[-260px]"
+        className={`bg-[#fff] dark:bg-[#33373D] shadow-md md:w-[260px]
+         w-[200px] h-[100vh]  p-4 z-50 translate-x-[-260px]
+       flex flex-col gap-4 fixed top-0 left-0 transition-all md:translate-x-[0px] ${
+         openSidebar ? "translate-x-[0px]" : ""
        }`}
       >
         <div className="text-slate-900 dark:text-[#F8FAFF] font-extrabold text-2xl flex items-center gap-3 mb-4">

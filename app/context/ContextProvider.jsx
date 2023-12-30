@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
-  const [openSidebar, setOpenSidebar] = useState(true);
+  const [openSidebar, setOpenSidebar] = useState(false);
   const handleSideBar = () => {
     setOpenSidebar(!openSidebar);
   };

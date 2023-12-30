@@ -1,10 +1,17 @@
+"use client";
+
 import Earnings from "./components/earnings/Earnings";
 import { IoPeopleOutline } from "react-icons/io5";
 import { BsBoxSeam } from "react-icons/bs";
 import { FiBarChart } from "react-icons/fi";
 import { TiArrowRepeat } from "react-icons/ti";
-
+import BarChart from "./components/charts/BarChart";
 import StatBox from "./components/statBox/StatBox";
+import Settings from "./components/settings/Settings";
+import { IoSettingsOutline } from "react-icons/io5";
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectColor } from "../redux/features/colorSlice";
 
 export const data = [
   {
@@ -48,13 +55,38 @@ export const data = [
     bg: "bg-[#EAF6F3]",
   },
 ];
-export default async function Home() {
+export default function Home() {
+  const bgColor = "bg-[#108EF3]";
+  const colors = useSelector((state) => state.color.colors);
+  const selectedColor = useSelector((state) => state.color.selectedColor);
+
+  // Get the dispatch function from the useDispatch hook
+  const dispatch = useDispatch();
+
+  // Define a function to handle the color selection
+  const handleSelectedColor = (color) => {
+    // Dispatch the selectColor action with the color as payload
+    dispatch(selectColor(color));
+  };
+
+  const [openSettings, setOpenSettings] = useState(false);
+  const handleSettings = () => {
+    setOpenSettings((prevState) => !prevState);
+  };
   return (
     <>
       <div
-        className={` bg-[#F9F9F9] transition-all dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
+        className={` bg-[#F9F9F9] transition-all min-h-[100vh] dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
       >
         <div className="top flex items-center gap-4 pt-16 flex-col xl:flex-row">
+          <span
+            onClick={handleSettings}
+            className={`cursor-pointer fixed bottom-4 right-4 text-[#fff] flex items-center justify-center
+            text-2xl ${selectedColor} w-[50px] h-[50px] rounded-full`}
+          >
+            <IoSettingsOutline />
+          </span>
+          {openSettings && <Settings handleSettings={handleSettings} />}
           <div>
             <Earnings />
           </div>
@@ -73,7 +105,9 @@ export default async function Home() {
             ))}
           </div>
         </div>
-        <div className="bottom"></div>
+        <div className="bottom">
+          <BarChart />
+        </div>
       </div>
     </>
   );
