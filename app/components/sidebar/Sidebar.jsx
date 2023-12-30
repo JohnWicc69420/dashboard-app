@@ -4,11 +4,11 @@ import { useContext, useState } from "react";
 import { SiShopware } from "react-icons/si";
 import { data } from "./data";
 import SidebarBox from "./SidebarBox";
+import { useSelector } from "react-redux";
 
 export default function Sidebar() {
   const { openSidebar } = useContext(Context);
   const [selectedBoxId, setSelectedBoxId] = useState(data[1].id);
-  const bgColor = "bg-[#108EF3]";
 
   const handleBoxClick = (boxId) => {
     const clickedBox = data.find((item) => item.id === boxId);
@@ -16,6 +16,8 @@ export default function Sidebar() {
       setSelectedBoxId(boxId);
     }
   };
+
+  const bgColor = useSelector((state) => state.color.selectedBgColor);
 
   return (
     <>

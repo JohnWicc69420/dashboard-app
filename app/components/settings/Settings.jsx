@@ -1,22 +1,43 @@
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { ThemeContext } from "@/app/context/ThemeContext";
 import { useContext, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectBgColor,
+  selectTextColor,
+} from "../../../redux/features/colorSlice";
+import { IoIosCheckmark } from "react-icons/io";
 
 export default function Settings({ handleSettings }) {
+  const { toggle } = useContext(ThemeContext);
   const colors = [
-    { id: 1, bgColor: "bg-[#108EF3]" },
-    { id: 2, bgColor: "bg-[#01B2D5]" },
-    { id: 3, bgColor: "bg-[#725FFE]" },
-    { id: 4, bgColor: "bg-[#FB6D8E]" },
-    { id: 5, bgColor: "bg-[#1B4CB7]" },
-    { id: 6, bgColor: "bg-[#FD9D77]" },
+    { id: 1, textColor: "text-[#108EF3]", bgColor: "bg-[#108EF3]" },
+    { id: 2, textColor: "text-[#01B2D5]", bgColor: "bg-[#01B2D5]" },
+    { id: 3, textColor: "text-[#725FFE]", bgColor: "bg-[#725FFE]" },
+    { id: 4, textColor: "text-[#FB6D8E]", bgColor: "bg-[#FB6D8E]" },
+    { id: 5, textColor: "text-[#1B4CB7]", bgColor: "bg-[#1B4CB7]" },
+    { id: 6, textColor: "text-[#FD9D77]", bgColor: "bg-[#FD9D77]" },
   ];
-  const [selectedColor, setSelectedColor] = useState(colors[0].bgColor);
-  const handleSelectedColor = (color) => {
-    setSelectedColor(color);
+  const bgColor = useSelector((state) => state.color.selectedBgColor);
+  const textColor = useSelector((state) => state.color.selectedTextColor);
+  // Get the dispatch function from the useDispatch hook
+  const dispatch = useDispatch();
+
+  // Define a function to handle the color selection
+  const handleSelectedBgColor = (color) => {
+    // Dispatch the selectColor action with the color as payload
+    dispatch(selectBgColor(color));
   };
 
-  const { toggle } = useContext(ThemeContext);
+  const handleSelectedTextColor = (color) => {
+    // Dispatch the selectColor action with the color as payload
+    dispatch(selectTextColor(color));
+  };
+
+  const [selectedBoxId, setSelectedBoxId] = useState(colors[0].id);
+  const handleSelectedBoxId = (id) => {
+    setSelectedBoxId(id);
+  };
 
   return (
     <div
@@ -62,15 +83,24 @@ p-4 h-[100vh] fixed top-0 right-0  flex flex-col`}
         <div className="colors flex flex-row gap-2">
           {colors.map((item) => (
             <div
-              onClick={() => handleSelectedColor(item.bgColor)}
+              onClick={() => {
+                handleSelectedBgColor(item.bgColor);
+                handleSelectedTextColor(item.textColor);
+                handleSelectedBoxId(item.id);
+              }}
               key={item.id}
               className={`w-[30px] h-[30px] cursor-pointer ${item.bgColor} rounded-full`}
-            ></div>
+            >
+              <span className="flex justify-center">
+                {item.id === selectedBoxId ? (
+                  <IoIosCheckmark className=" text-3xl text-[#fff]" />
+                ) : (
+                  ""
+                )}
+              </span>
+            </div>
           ))}
         </div>
-        <div
-          className={`h-[100px] w-[100px] ${selectedColor} mt-6 rounded-full`}
-        ></div>
       </div>
     </div>
   );

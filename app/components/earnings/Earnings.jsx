@@ -1,7 +1,8 @@
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 export default function Earnings() {
-  const bgColor = "bg-[#108EF3]";
+  const bgColor = useSelector((state) => state.color.selectedBgColor);
   return (
     <>
       <div className="bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] rounded-xl relative overflow-hidden shadow-lg">

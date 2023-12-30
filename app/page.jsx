@@ -10,8 +10,7 @@ import StatBox from "./components/statBox/StatBox";
 import Settings from "./components/settings/Settings";
 import { IoSettingsOutline } from "react-icons/io5";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectColor } from "../redux/features/colorSlice";
+import { useSelector } from "react-redux";
 
 export const data = [
   {
@@ -56,18 +55,7 @@ export const data = [
   },
 ];
 export default function Home() {
-  const bgColor = "bg-[#108EF3]";
-  const colors = useSelector((state) => state.color.colors);
-  const selectedColor = useSelector((state) => state.color.selectedColor);
-
-  // Get the dispatch function from the useDispatch hook
-  const dispatch = useDispatch();
-
-  // Define a function to handle the color selection
-  const handleSelectedColor = (color) => {
-    // Dispatch the selectColor action with the color as payload
-    dispatch(selectColor(color));
-  };
+  const selectedColor = useSelector((state) => state.color.selectedBgColor);
 
   const [openSettings, setOpenSettings] = useState(false);
   const handleSettings = () => {

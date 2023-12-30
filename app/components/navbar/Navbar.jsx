@@ -8,7 +8,7 @@ import { GoBell } from "react-icons/go";
 
 import { useContext, useState } from "react";
 import { Context } from "@/app/context/ContextProvider";
-import Settings from "../settings/Settings";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const { handleSideBar, openSidebar } = useContext(Context);
@@ -17,16 +17,18 @@ export default function Navbar() {
     setOpenCart((prevState) => !prevState);
   };
 
-  const textColor = "text-[#108EF3]";
+  const textColor = useSelector((state) => state.color.selectedTextColor);
   return (
     <>
       <div
-        className={` shadow-md transition-colors sticky top-0 flex dark:bg-[#1E2228] ${textColor}
+        className={` shadow-md transition-colors sticky top-0 flex 
+        dark:bg-[#1E2228] ${textColor}
          justify-between py-3 px-8 
       items-center bg-[#F9F9F9] h-14 z-40 md:pl-[285px] ${
         openSidebar ? "pl-[215px]" : ""
       }`}
       >
+        {console.log(textColor)}
         <div className="left flex text-2xl gap-4 items-center">
           <span onClick={handleSideBar}>
             <RxHamburgerMenu className=" cursor-pointer md:hidden block" />
