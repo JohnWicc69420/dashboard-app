@@ -5,12 +5,12 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { BsBoxSeam } from "react-icons/bs";
 import { FiBarChart } from "react-icons/fi";
 import { TiArrowRepeat } from "react-icons/ti";
-import BarChart from "./components/charts/BarChart";
 import StatBox from "./components/statBox/StatBox";
 import Settings from "./components/settings/Settings";
 import { IoSettingsOutline } from "react-icons/io5";
 import { setOpenSettings } from "@/redux/features/settingsSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Revenue from "./components/revenue/Revenue";
 
 export const data = [
   {
@@ -98,7 +98,7 @@ export default function Home() {
           </div>
         </div>
         <div className="bottom">
-          <BarChart />
+          <Revenue />
         </div>
       </div>
     </>
