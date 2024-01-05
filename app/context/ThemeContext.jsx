@@ -16,8 +16,8 @@ export const ThemeContextProvider = ({ children }) => {
     return getFromLocalStorage();
   });
 
-  const toggle = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+  const toggle = (toggleTheme) => {
+    setTheme(toggleTheme === "light" ? "dark" : "light");
   };
 
   useEffect(() => {

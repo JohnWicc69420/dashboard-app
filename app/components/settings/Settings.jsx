@@ -65,7 +65,7 @@ p-4 h-[100vh] fixed top-0 z-50 right-0 flex flex-col`}
             id="light"
             name="theme"
             value="light"
-            onChange={toggle}
+            onChange={()=>toggle("dark")}
           />
           <label for="light">Light</label>
         </span>
@@ -76,7 +76,7 @@ p-4 h-[100vh] fixed top-0 z-50 right-0 flex flex-col`}
             id="dark"
             name="theme"
             value="dark"
-            onChange={toggle}
+            onChange={()=>toggle("light")}
           />
           <label for="dark">Dark</label>
         </span>
