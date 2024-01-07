@@ -20,8 +20,8 @@ export const data = [
   },
   { id: 6, title: "Customers", icon: <RxPerson />, link: "/customers" },
   { id: 7, title: "CHARTS", icon: "null" },
-  { id: 8, title: "Line", icon: <LuLineChart /> },
-  { id: 9, title: "Area", icon: <AiOutlineAreaChart /> },
-  { id: 10, title: "Bar", icon: <FaRegChartBar /> },
-  { id: 11, title: "Pie", icon: <FiPieChart /> },
+  { id: 8, title: "Line", icon: <LuLineChart />, link: "/line" },
+  { id: 9, title: "Area", icon: <AiOutlineAreaChart />, link: "/area" },
+  { id: 10, title: "Bar", icon: <FaRegChartBar />, link: "/bar" },
+  { id: 11, title: "Pie", icon: <FiPieChart />, link: "/pie" },
 ];

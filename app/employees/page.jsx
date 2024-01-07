@@ -26,7 +26,7 @@ export default function Employees() {
       <div
         className={`${
           openSettings ? "brightness-50" : ""
-        } bg-[#F9F9F9] dark:text-[#fff] transition-color  dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
+        } bg-[#F9F9F9] dark:text-[#B1B1B1] transition-color  dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
       >
         Employees
       </div>

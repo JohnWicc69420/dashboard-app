@@ -176,7 +176,7 @@ export default function Revenue() {
                 <span className=" text-[#808080] text-sm">Expense</span>
               </span>
               <div>
-                <div className="lineChart h-[100px]">
+                <div className="lineChart h-[100px] mb-7">
                   <LineChart options={lineChartOptions} data={lineChartData} />
                 </div>
                 <div
