@@ -1,10 +1,10 @@
 "use client";
-import Settings from "../components/settings/Settings";
+import Settings from "../../components/settings/Settings";
 import { IoSettingsOutline } from "react-icons/io5";
 import { setOpenSettings } from "@/redux/features/settingsSlice";
 import { useSelector, useDispatch } from "react-redux";
 
-export default function Orders() {
+export default function Line() {
   const selectedColor = useSelector((state) => state.color.selectedBgColor);
   const openSettings = useSelector((state) => state.settings.openSettings);
 
@@ -28,7 +28,7 @@ export default function Orders() {
           openSettings ? "brightness-50" : ""
         } bg-[#F9F9F9] dark:text-[#B1B1B1] transition-color  dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
       >
-        Orders
+        Line
       </div>
     </>
   );

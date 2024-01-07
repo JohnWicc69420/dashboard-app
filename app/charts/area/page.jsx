@@ -1,5 +1,5 @@
 "use client";
-import Settings from "../components/settings/Settings";
+import Settings from "../../components/settings/Settings";
 import { IoSettingsOutline } from "react-icons/io5";
 import { setOpenSettings } from "@/redux/features/settingsSlice";
 import { useSelector, useDispatch } from "react-redux";
