@@ -5,9 +5,10 @@ import { SiShopware } from "react-icons/si";
 import { data } from "./data";
 import SidebarBox from "./SidebarBox";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 export default function Sidebar() {
-  const { openSidebar } = useContext(Context);
+  const { handleSideBar, openSidebar } = useContext(Context);
   const [selectedBoxId, setSelectedBoxId] = useState(data[1].id);
 
   const handleBoxClick = (boxId) => {
@@ -33,12 +34,20 @@ export default function Sidebar() {
           <span>Shoppy</span>
         </div>
         {data.map((item) => (
-          <div key={item.id} onClick={() => handleBoxClick(item.id)}>
-            <SidebarBox
-              bgColor={item.id === selectedBoxId ? bgColor : "null"}
-              title={item.title}
-              icon={item.icon}
-            />
+          <div
+            key={item.id}
+            onClick={() => {
+              handleBoxClick(item.id);
+              handleSideBar();
+            }}
+          >
+            <Link href={item.link ? item.link : "/"}>
+              <SidebarBox
+                bgColor={item.id === selectedBoxId ? bgColor : "null"}
+                title={item.title}
+                icon={item.icon}
+              />
+            </Link>
           </div>
         ))}
       </div>

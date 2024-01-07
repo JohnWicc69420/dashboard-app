@@ -56,9 +56,9 @@ p-4 h-[100vh] fixed top-0 z-50 right-0 flex flex-col`}
           <IoCloseCircleOutline />
         </span>
       </div>
-      <div className="flex flex-col border-b-[2px] py-4 gap-2">
+      <div className="flex flex-col border-b-[2px] py-4 gap-2 ">
         <span className="font-semibold">Theme Option</span>
-        <span className="flex items-center gap-2">
+        <span className="flex items-center gap-2 cursor-pointer">
           <input
             className=" cursor-pointer"
             checked={theme === "light"}
@@ -68,9 +68,11 @@ p-4 h-[100vh] fixed top-0 z-50 right-0 flex flex-col`}
             value="light"
             onChange={() => toggle("dark")}
           />
-          <label for="light">Light</label>
+          <label className="cursor-pointer" for="light">
+            Light
+          </label>
         </span>
-        <span className="flex items-center gap-2">
+        <span className="flex items-center gap-2 cursor-pointer">
           <input
             className=" cursor-pointer"
             checked={theme === "dark"}
@@ -80,7 +82,9 @@ p-4 h-[100vh] fixed top-0 z-50 right-0 flex flex-col`}
             value="dark"
             onChange={() => toggle("light")}
           />
-          <label for="dark">Dark</label>
+          <label className="cursor-pointer" for="dark">
+            Dark
+          </label>
         </span>
       </div>
       <div className="flex flex-col py-4">
