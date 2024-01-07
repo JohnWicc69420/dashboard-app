@@ -1,5 +1,6 @@
 import BarChart from "../charts/BarChart";
 import LineChart from "../charts/LineChart";
+import PieChart from "../charts/PieChart";
 import { useSelector } from "react-redux";
 
 export default function Revenue() {
@@ -105,11 +106,39 @@ export default function Revenue() {
       },
     ],
   };
+  const pieChartData = {
+    labels: [],
+    datasets: [
+      {
+        label: "",
+        data: [15, 25, 14, 17, 13, 8], // Replace with your actual data
+        backgroundColor: [
+          "#108EF3",
+          "#FB6D8E",
+          "#01B2D5",
+          "#725FFE",
+          "#1B4CB7",
+          "#FD9D77",
+        ],
+        borderColor: [
+          "#108EF3",
+          "#FB6D8E",
+          "#01B2D5",
+          "#725FFE",
+          "#1B4CB7",
+          "#FD9D77",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <>
       <div className=" flex xl:flex-row flex-col items-center mt-6 gap-4">
         <div
-          className="bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] p-4 rounded-xl shadow-lg 
+          className="bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8]
+           p-4 rounded-xl shadow-lg 
         left flex flex-col"
         >
           <div className="title flex items-center justify-between mb-6">
@@ -125,7 +154,10 @@ export default function Revenue() {
               </span>
             </span>
           </div>
-          <div className="container flex md:flex-row flex-col items-center justify-around gap-20">
+          <div
+            className="container flex md:flex-row flex-col items-center
+           justify-around gap-20"
+          >
             <div className="updates flex pl-6 items-start flex-col gap-6">
               <div className=" flex items-start">
                 <span className="flex flex-col">
@@ -148,7 +180,8 @@ export default function Revenue() {
                   <LineChart options={lineChartOptions} data={lineChartData} />
                 </div>
                 <div
-                  className={`mt-3 w-[160px] cursor-pointer xl:mt-5 text-center text-[#fff] text-sm ${bgColor} py-3 px-2 rounded-xl`}
+                  className={`mt-3 w-[160px] cursor-pointer xl:mt-5 text-center text-[#fff]
+                   text-sm ${bgColor} py-3 px-2 rounded-xl`}
                 >
                   Download Report
                 </div>
@@ -178,12 +211,20 @@ export default function Revenue() {
               </div>
             </div>
           </div>
-          <div className="bottom bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] flex h-[200px] w-[350px] shadow-lg rounded-xl p-3 items-center justify-around flex-row ">
+          <div
+            className="bottom bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] 
+          flex h-[200px] w-[350px] shadow-lg rounded-xl p-3 items-center 
+          justify-around flex-row "
+          >
             <div className="title flex items-start flex-col">
               <span className="text-xl font-medium">$43,487</span>
               <span className="text-[#919191] text-sm">Yearly sales</span>
             </div>
-            <div className="pieChart">piechart</div>
+            <div className="pieChart">
+              <div className="w-[100px] h-[100px]">
+                <PieChart data={pieChartData} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
