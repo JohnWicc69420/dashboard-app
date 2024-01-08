@@ -1,34 +1,30 @@
 "use client";
-import Settings from "../../components/settings/Settings";
-import { IoSettingsOutline } from "react-icons/io5";
-import { setOpenSettings } from "@/redux/features/settingsSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import Title from "../Title";
+import Container from "./Container";
 
 export default function Orders() {
-  const selectedColor = useSelector((state) => state.color.selectedBgColor);
   const openSettings = useSelector((state) => state.settings.openSettings);
-
-  const dispatch = useDispatch();
-  const handleOpenSettings = () => {
-    dispatch(setOpenSettings(!openSettings));
-  };
 
   return (
     <>
-      <span
-        onClick={handleOpenSettings}
-        className={`cursor-pointer fixed bottom-4 right-4 text-[#fff] flex items-center justify-center
-        text-2xl ${selectedColor} w-[50px] h-[50px] rounded-full`}
-      >
-        <IoSettingsOutline />
-      </span>
-      {openSettings && <Settings handleSettings={handleOpenSettings} />}
       <div
         className={`${
           openSettings ? "brightness-50" : ""
-        } bg-[#F9F9F9] dark:text-[#B1B1B1] transition-color  dark:bg-[#1E2228] w-full h-full md:pl-[285px]`}
+        } bg-[#F9F9F9] dark:text-[#B1B1B1] transition-color 
+         dark:bg-[#1E2228] w-full h-full overflow-x-auto md:pl-[285px] p-8`}
       >
-        Orders
+        <div
+          className="p-8 bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8]
+        flex flex-col items-start rounded-xl"
+        >
+          <div>
+            <Title title="Orders" />
+          </div>
+          <div className="pt-8 w-full">
+            <Container />
+          </div>
+        </div>
       </div>
     </>
   );

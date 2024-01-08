@@ -4,8 +4,11 @@ import { useContext, useState } from "react";
 import { SiShopware } from "react-icons/si";
 import { data } from "./data";
 import SidebarBox from "./SidebarBox";
-import { useSelector } from "react-redux";
 import Link from "next/link";
+import Settings from "../../components/settings/Settings";
+import { IoSettingsOutline } from "react-icons/io5";
+import { setOpenSettings } from "@/redux/features/settingsSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Sidebar() {
   const { handleSideBar, openSidebar } = useContext(Context);
@@ -19,9 +22,24 @@ export default function Sidebar() {
   };
 
   const bgColor = useSelector((state) => state.color.selectedBgColor);
+  const openSettings = useSelector((state) => state.settings.openSettings);
+
+  const dispatch = useDispatch();
+  const handleOpenSettings = () => {
+    dispatch(setOpenSettings(!openSettings));
+  };
 
   return (
     <>
+      <span
+        onClick={handleOpenSettings}
+        className={`cursor-pointer fixed bottom-4 right-4 text-[#fff] flex 
+        items-center justify-center
+        text-2xl ${bgColor} w-[50px] h-[50px] rounded-full shadow-md`}
+      >
+        <IoSettingsOutline />
+      </span>
+      {openSettings && <Settings handleSettings={handleOpenSettings} />}
       <div
         className={`bg-[#fff] dark:bg-[#33373D] shadow-md md:w-[260px]
          w-[200px] h-[100vh]  p-4 z-50 translate-x-[-260px]
