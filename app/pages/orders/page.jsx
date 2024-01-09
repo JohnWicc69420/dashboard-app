@@ -12,7 +12,7 @@ export default function Orders() {
         className={`${
           openSettings ? "brightness-50" : ""
         } bg-[#F9F9F9] dark:text-[#B1B1B1] transition-color 
-         dark:bg-[#1E2228] w-full h-full overflow-x-auto md:pl-[285px] p-8`}
+         dark:bg-[#1E2228] w-full min-h-screen overflow-x-auto md:pl-[285px] p-8`}
       >
         <div
           className="p-8 bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8]

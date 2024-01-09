@@ -201,7 +201,7 @@ export default function Revenue() {
             <div className="title  flex flex-row items-start justify-between w-full">
               <span className=" text-lg font-medium">Earnings</span>
               <div className="flex items-start flex-col">
-                <span className="text-lg font-medium">$63,487.38</span>
+                <span className="text-lg font-medium">$63,448.78</span>
                 <span className=" text-xs text-[#f5f5f5]">Monthly revenue</span>
               </div>
             </div>

@@ -3,12 +3,12 @@ import Profile from "./Profile";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { CiSearch } from "react-icons/ci";
 import { BsCart2 } from "react-icons/bs";
-import { FiMessageSquare } from "react-icons/fi";
+import { LuMessageCircle } from "react-icons/lu";
 import { GoBell } from "react-icons/go";
-
 import { useContext, useState } from "react";
 import { Context } from "@/app/context/ContextProvider";
 import { useSelector } from "react-redux";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export default function Navbar() {
   const { handleSideBar, openSidebar } = useContext(Context);
@@ -34,7 +34,11 @@ export default function Navbar() {
         {console.log(textColor)}
         <div className="left flex text-2xl gap-4 items-center">
           <span onClick={handleSideBar}>
-            <RxHamburgerMenu className=" cursor-pointer md:hidden block" />
+            {openSidebar ? (
+              <IoIosCloseCircleOutline className=" cursor-pointer md:hidden block" />
+            ) : (
+              <RxHamburgerMenu className=" cursor-pointer md:hidden block" />
+            )}
           </span>
           <CiSearch className=" cursor-pointer" />
         </div>
@@ -42,7 +46,7 @@ export default function Navbar() {
           <span onClick={handleOpenCart}>
             <BsCart2 className=" cursor-pointer" />
           </span>
-          <FiMessageSquare className=" cursor-pointer" />
+          <LuMessageCircle className=" cursor-pointer" />
           <GoBell className=" cursor-pointer" />
           <Profile className=" cursor-pointer" />
         </div>

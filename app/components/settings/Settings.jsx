@@ -19,21 +19,18 @@ export default function Settings() {
     { id: 5, textColor: "text-[#1B4CB7]", bgColor: "bg-[#1B4CB7]" },
     { id: 6, textColor: "text-[#FD9D77]", bgColor: "bg-[#FD9D77]" },
   ];
-  // Get the dispatch function from the useDispatch hook
+
   const openSettings = useSelector((state) => state.settings.openSettings);
   const dispatch = useDispatch();
   const handleOpenSettings = () => {
     dispatch(setOpenSettings(!openSettings));
   };
 
-  // Define a function to handle the color selection
   const handleSelectedBgColor = (color) => {
-    // Dispatch the selectColor action with the color as payload
     dispatch(selectBgColor(color));
   };
 
   const handleSelectedTextColor = (color) => {
-    // Dispatch the selectColor action with the color as payload
     dispatch(selectTextColor(color));
   };
 
