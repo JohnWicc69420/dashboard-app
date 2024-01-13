@@ -2,6 +2,7 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
+import Title from "../../pages/Title";
 import Chart from "./Chart";
 
 export default function Area() {
@@ -20,12 +21,12 @@ export default function Area() {
   const navHeight = 56;
   return (
     <>
-      {isLoading && (
+      {isLoading ? (
         <div
           className={`${
             openSettings ? "brightness-50" : ""
           } bg-[#F9F9F9] dark:bg-[#1E2228] flex items-center 
-        justify-center w-full pageSize md:pl-[285px] p-8`}
+      justify-center w-full pageSize md:pl-[285px] p-8`}
         >
           <ThreeCircles
             visible={true}
@@ -37,18 +38,26 @@ export default function Area() {
             wrapperClass=""
           />
         </div>
-      )}
-
-      <div
-        className={`${
-          openSettings ? "brightness-50" : ""
-        } bg-[#F9F9F9] dark:text-[#B1B1B1] transition-color dark:bg-[#1E2228]
-         md:pl-[285px] w-full overflow-auto flex items-center justify-center pageSize`}
-      >
-        <div>
-          <Chart />
+      ) : (
+        <div
+          className={`${
+            openSettings ? "brightness-50" : ""
+          } bg-[#F9F9F9] dark:text-[#B1B1B1] transition-color 
+dark:bg-[#1E2228] w-full pageSize overflow-x-auto md:pl-[285px] p-8`}
+        >
+          <div
+            className="pt-8 bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8]
+flex flex-col items-start rounded-xl"
+          >
+            <div className="px-8">
+              <Title page="Chart" title="Line" />
+            </div>
+            <div className="pt-8 w-full flex items-center justify-center overflow-auto">
+              <Chart />
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

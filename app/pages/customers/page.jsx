@@ -50,7 +50,7 @@ export default function Employees() {
 flex flex-col items-start rounded-xl"
           >
             <div>
-              <Title title="Customers" />
+              <Title page="Page" title="Customers" />
             </div>
             <div className="pt-8 w-full">
               <Container />
