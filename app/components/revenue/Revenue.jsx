@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BarChart from "../charts/BarChart";
 import LineChart from "../charts/LineChart";
 import PieChart from "../charts/PieChart";
@@ -111,7 +112,7 @@ export default function Revenue() {
     datasets: [
       {
         label: "",
-        data: [15, 25, 14, 17, 13, 8], // Replace with your actual data
+        data: [15, 25, 14, 17, 13, 8],
         backgroundColor: [
           "#108EF3",
           "#FB6D8E",
@@ -176,9 +177,14 @@ export default function Revenue() {
                 <span className=" text-[#808080] text-sm">Expense</span>
               </span>
               <div>
-                <div className="lineChart h-[100px] mb-7">
-                  <LineChart options={lineChartOptions} data={lineChartData} />
-                </div>
+                <Link href="/charts/line">
+                  <div className="lineChart h-[100px] mb-7">
+                    <LineChart
+                      options={lineChartOptions}
+                      data={lineChartData}
+                    />
+                  </div>
+                </Link>
                 <div
                   className={`mt-3 w-[160px] cursor-pointer xl:mt-5 text-center text-[#fff]
                    text-sm ${bgColor} py-3 px-2 rounded-xl`}
@@ -188,44 +194,52 @@ export default function Revenue() {
               </div>
             </div>
             <div className="h-[300px] w-[1px] bg-[#808080] hidden md:block"></div>
-            <div className=" h-[325px] w-[325px]">
-              <BarChart options={chart1Options} data={chart1Data} />
-            </div>
+            <Link href="/charts/bar">
+              <div className=" h-[325px] w-[325px]">
+                <BarChart options={chart1Options} data={chart1Data} />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="right flex flex-col items-center gap-2">
-          <div
-            className={`top ${bgColor} h-[200px] w-[350px] shadow-lg text-[#fff] p-3 
+          <Link href="/charts/bar">
+            <div
+              className={`top ${bgColor} h-[200px] w-[350px] shadow-lg text-[#fff] p-3 
           pt-6 rounded-xl flex flex-col items-start`}
-          >
-            <div className="title  flex flex-row items-start justify-between w-full">
-              <span className=" text-lg font-medium">Earnings</span>
-              <div className="flex items-start flex-col">
-                <span className="text-lg font-medium">$63,448.78</span>
-                <span className=" text-xs text-[#f5f5f5]">Monthly revenue</span>
+            >
+              <div className="title  flex flex-row items-start justify-between w-full">
+                <span className=" text-lg font-medium">Earnings</span>
+                <div className="flex items-start flex-col">
+                  <span className="text-lg font-medium">$63,448.78</span>
+                  <span className=" text-xs text-[#f5f5f5]">
+                    Monthly revenue
+                  </span>
+                </div>
+              </div>
+              <div className="bars ">
+                <div className="h-[90px] mt-7">
+                  <BarChart options={chart2Options} data={chart2Data} />
+                </div>
               </div>
             </div>
-            <div className="bars ">
-              <div className="h-[90px] mt-7">
-                <BarChart options={chart2Options} data={chart2Data} />
-              </div>
-            </div>
-          </div>
-          <div
-            className="bottom bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] 
+          </Link>
+          <Link href="/charts/pie">
+            <div
+              className="bottom bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] 
           flex h-[200px] w-[350px] shadow-lg rounded-xl p-3 items-center 
           justify-around flex-row "
-          >
-            <div className="title flex items-start flex-col">
-              <span className="text-xl font-medium">$43,487</span>
-              <span className="text-[#919191] text-sm">Yearly sales</span>
-            </div>
-            <div className="pieChart">
-              <div className="w-[100px] h-[100px]">
-                <PieChart data={pieChartData} />
+            >
+              <div className="title flex items-start flex-col">
+                <span className="text-xl font-medium">$43,487</span>
+                <span className="text-[#919191] text-sm">Yearly sales</span>
+              </div>
+              <div className="pieChart">
+                <div className="w-[100px] h-[100px]">
+                  <PieChart data={pieChartData} />
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </>

@@ -6,7 +6,6 @@ import { MdNavigateNext } from "react-icons/md";
 import { RiSkipRightLine } from "react-icons/ri";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import Image from "next/image";
 
 export default function Container() {
   const getBgColor = (status) => {
@@ -32,7 +31,6 @@ export default function Container() {
     { id: 1, pageNo: 1 },
     { id: 2, pageNo: 2 },
     { id: 3, pageNo: 3 },
-    { id: 4, pageNo: 4 },
   ];
 
   const [startIndex, setStartIndex] = useState(0);
@@ -45,7 +43,7 @@ export default function Container() {
   };
 
   const handleNextIndex = (items) => {
-    setStartIndex((prev) => Math.min(prev + items, 30));
+    setStartIndex((prev) => Math.min(prev + items, 20));
   };
   const handlePrevIndex = (items) => {
     setStartIndex((prev) => Math.max(prev - items, 0));
@@ -54,7 +52,7 @@ export default function Container() {
   const [selectedBoxId, setSelectedBoxId] = useState(numbers[0].id);
 
   const incrementBoxId = (pages) => {
-    setSelectedBoxId((prev) => Math.min(prev + pages, 4));
+    setSelectedBoxId((prev) => Math.min(prev + pages, 3));
   };
   const decrementBoxId = (pages) => {
     setSelectedBoxId((prev) => Math.max(prev - pages, 1));
@@ -64,19 +62,48 @@ export default function Container() {
     setSelectedBoxId(id);
   };
 
+  const [allChecked, setAllChecked] = useState(false);
+  const handleAllChecked = (isChecked) => {
+    setAllChecked(isChecked);
+    setSelectedBoxes(isChecked ? data.map((item) => item.id) : []);
+  };
+
+  const [selectedBoxes, setSelectedBoxes] = useState([]);
+  const handleSelectedBoxes = (itemId) => {
+    setSelectedBoxes((prevSelectedBoxes) => {
+      if (prevSelectedBoxes.includes(itemId)) {
+        return prevSelectedBoxes.filter((id) => id !== itemId);
+      } else {
+        return [...prevSelectedBoxes, itemId];
+      }
+    });
+  };
+
   return (
     <>
       <div className="container overflow-x-auto">
         <table className="w-full ">
           <thead>
             <tr className="border text-[#b1b1b1] text-sm w-full">
-              <th className="p-4 font-medium">Image</th>
-              <th className="p-4 font-medium">Item</th>
-              <th className="p-4 font-medium">Customer Name</th>
-              <th className="p-4 font-medium">Total Amount</th>
+              <th className="p-4">
+                <input
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    cursor: "pointer",
+                  }}
+                  type="checkbox"
+                  checked={allChecked}
+                  onChange={(e) => handleAllChecked(e.target.checked)}
+                />
+              </th>
+              <th className="p-4 font-medium">Name</th>
+              <th className="p-4 font-medium">Project Name</th>
               <th className="p-4 font-medium">Status</th>
-              <th className="p-4 font-medium">Order ID</th>
+              <th className="p-4 font-medium">Weeks</th>
+              <th className="p-4 font-medium">Budget</th>
               <th className="p-4 font-medium">Location</th>
+              <th className="p-4 font-medium">Customer ID</th>
             </tr>
           </thead>
           <tbody>
@@ -85,20 +112,19 @@ export default function Container() {
                 key={item.id}
                 className="border text-xs text-[#454545] text-center dark:text-[#b1b1b1] hover:bg-[#eee] dark:hover:bg-[#1E2228] w-full"
               >
-                <td className=" pl-8 py-[10px]">
-                  <div
-                    className="flex items-center justify-center
-                   rounded-xl overflow-hidden h-[65px] w-[65px]"
-                  >
-                    <Image
-                      className=" w-full h-full object-cover"
-                      src={item.img}
-                      width={70}
-                      height={70}
-                      alt=""
-                    />
-                  </div>
+                <td className="p-4">
+                  <input
+                    style={{
+                      width: "15px",
+                      height: "15px",
+                      cursor: "pointer",
+                    }}
+                    checked={selectedBoxes.includes(item.id)}
+                    type="checkbox"
+                    onChange={() => handleSelectedBoxes(item.id)}
+                  />
                 </td>
+                <td className="p-4">yo</td>
                 <td className="p-4">{item.item}</td>
                 <td className="p-4">{item.customerName}</td>
                 <td className="p-4">
@@ -109,7 +135,7 @@ export default function Container() {
                   <span
                     className={`${getBgColor(
                       item.status
-                    )} py-[6px] px-[10px] rounded-3xl text-[#fff]`}
+                    )} py-2 px-3 rounded-3xl text-[#fff]`}
                   >
                     {item.status}
                   </span>
@@ -126,8 +152,8 @@ export default function Container() {
                   <span
                     className=" cursor-pointer"
                     onClick={() => {
-                      handlePrevIndex(40);
-                      decrementBoxId(3);
+                      handlePrevIndex(30);
+                      decrementBoxId(2);
                     }}
                   >
                     <RiSkipLeftLine />
@@ -171,8 +197,8 @@ export default function Container() {
                   <span
                     className=" cursor-pointer"
                     onClick={() => {
-                      handleNextIndex(40);
-                      incrementBoxId(3);
+                      handleNextIndex(30);
+                      incrementBoxId(2);
                     }}
                   >
                     <RiSkipRightLine />
@@ -180,7 +206,7 @@ export default function Container() {
                 </div>
               </td>
               <td colSpan={3} className="px-6 py-3 text-xs text-right">
-                {selectedBoxId} <span>of 4 pages (38 items)</span>
+                {selectedBoxId} <span>of 3 pages (27 items)</span>
               </td>
             </tr>
           </tfoot>

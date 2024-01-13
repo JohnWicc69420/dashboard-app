@@ -11,6 +11,8 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { setOpenSettings } from "@/redux/features/settingsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Revenue from "./components/revenue/Revenue";
+import { ThreeCircles } from "react-loader-spinner";
+import { useState, useEffect } from "react";
 
 export const data = [
   {
@@ -57,14 +59,40 @@ export const data = [
 export default function Home() {
   const selectedColor = useSelector((state) => state.color.selectedBgColor);
   const openSettings = useSelector((state) => state.settings.openSettings);
-
+  const [isLoading, setIsLoading] = useState(true);
+  const bgColor = selectedColor.slice(4, 11);
   const dispatch = useDispatch();
   const handleOpenSettings = () => {
     dispatch(setOpenSettings(!openSettings));
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 250);
 
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
+      {isLoading && (
+        <div
+          className={`${
+            openSettings ? "brightness-50" : ""
+          } bg-[#F9F9F9] dark:bg-[#1E2228] flex items-center 
+        justify-center w-full pageSize md:pl-[285px] p-8`}
+        >
+          <ThreeCircles
+            visible={true}
+            height="100"
+            width="100"
+            color={bgColor}
+            ariaLabel="three-circles-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
+      )}
+
       <span
         onClick={handleOpenSettings}
         className={`cursor-pointer fixed bottom-4 right-4 text-[#fff] flex items-center justify-center
@@ -76,7 +104,7 @@ export default function Home() {
       <div
         className={`${
           openSettings ? "brightness-50" : ""
-        } bg-[#F9F9F9] transition-color  dark:bg-[#1E2228] w-full min-h-[100vh] md:pl-[285px]`}
+        } bg-[#F9F9F9] transition-color  dark:bg-[#1E2228] w-full pageSize md:pl-[285px]`}
       >
         <div className="top flex items-center gap-4 pt-5 flex-col xl:flex-row">
           <div>
@@ -97,7 +125,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="bottom">
+        <div className="bottom pb-5">
           <Revenue />
         </div>
       </div>

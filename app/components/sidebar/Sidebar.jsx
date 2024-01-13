@@ -9,6 +9,7 @@ import Settings from "../../components/settings/Settings";
 import { IoSettingsOutline } from "react-icons/io5";
 import { setOpenSettings } from "@/redux/features/settingsSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 export default function Sidebar() {
   const { handleSideBar, openSidebar } = useContext(Context);
@@ -31,6 +32,7 @@ export default function Sidebar() {
 
   return (
     <>
+      <div></div>
       <span
         onClick={handleOpenSettings}
         className={`cursor-pointer fixed bottom-4 right-4 text-[#fff] flex 
