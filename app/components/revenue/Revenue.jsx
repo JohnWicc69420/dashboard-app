@@ -235,7 +235,7 @@ export default function Revenue() {
               </div>
               <div className="pieChart">
                 <div className="w-[100px] h-[100px]">
-                  <PieChart data={pieChartData} />
+                  <PieChart data={pieChartData} options={null} />
                 </div>
               </div>
             </div>

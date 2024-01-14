@@ -4,6 +4,6 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function PieChart({ data }) {
-  return <Doughnut data={data} />;
+export default function PieChart({ data, options }) {
+  return <Doughnut data={data} options={options} />;
 }
