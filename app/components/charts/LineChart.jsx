@@ -1,6 +1,8 @@
 import React from "react";
 import {
   Chart as ChartJS,
+  Filler,
+  LineController,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -13,6 +15,8 @@ import { Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
+  Filler,
+  LineController,
   LinearScale,
   PointElement,
   LineElement,

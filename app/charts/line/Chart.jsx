@@ -1,6 +1,4 @@
 import LineChart from "@/app/components/charts/LineChart";
-import { useSelector } from "react-redux";
-
 export default function Chart() {
   const lineChartOptions = {
     responsive: true,
@@ -34,7 +32,7 @@ export default function Chart() {
     datasets: [
       {
         label: "USA",
-        data: [19, 35, 48, 45, 66, 71, 84],
+        data: [29, 45, 58, 55, 76, 81, 94],
         borderColor: "#725FFE",
         backgroundColor: "#725FFE",
         borderWidth: 2,
@@ -48,14 +46,14 @@ export default function Chart() {
       },
       {
         label: "Brazil",
-        data: [30, 35, 42, 45, 51, 65, 78],
+        data: [30, 25, 42, 57, 49, 75, 92],
         borderColor: "#1B4CB7",
         backgroundColor: "#1B4CB7",
         borderWidth: 2,
       },
       {
         label: "Germany",
-        data: [40, 42, 50, 58, 62, 72, 80],
+        data: [30, 37, 43, 40, 67, 65, 77],
         borderColor: "#01B2D5",
         backgroundColor: "#01B2D5",
         borderWidth: 2,
@@ -64,9 +62,9 @@ export default function Chart() {
   };
 
   return (
-    <div className="h-[600px] w-[1000px] flex flex-col items-center px-8">
+    <div className=" h-full w-[1000px] flex flex-col items-center px-8">
       <LineChart options={lineChartOptions} data={lineChartData} />
-      <span className=" pt-8 flex flex-row gap-3">
+      <span className=" pt-8 flex flex-row gap-3 pb-6">
         <span className="flex flex-row items-center gap-2">
           <div className=" w-[10px] h-[10px] bg-[#725FFE] rounded-full"></div>
           <span>USA</span>
