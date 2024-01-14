@@ -2,7 +2,6 @@ import LineChart from "@/app/components/charts/LineChart";
 import { useSelector } from "react-redux";
 
 export default function Chart() {
-  const bg = useSelector((state) => state.color.selectedBgColor);
   const lineChartOptions = {
     responsive: true,
     scales: {

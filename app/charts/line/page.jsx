@@ -18,7 +18,6 @@ export default function Area() {
     return () => clearTimeout(timer);
   }, []);
 
-  const navHeight = 56;
   return (
     <>
       {isLoading ? (

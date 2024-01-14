@@ -1,24 +1,37 @@
 import BarChart from "@/app/components/charts/BarChart";
-import { useSelector } from "react-redux";
+import { RiBarChartFill } from "react-icons/ri";
 
 export default function Chart() {
-  const bg = useSelector((state) => state.color.selectedBgColor);
-  const bgChart = bg.slice(4, 11);
-
   const chart1Data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July"],
+    labels: ["Feb", "Apr", "Jun", "July"],
     datasets: [
       {
-        data: [20, 50, 85, 110, 110, 110, 110],
-        backgroundColor: bgChart,
-        barThickness: 30,
-        stack: "stack1",
+        label: "USA",
+        data: [35, 45, 66, 84],
+        borderColor: "#725FFE",
+        backgroundColor: "#725FFE",
+        borderWidth: 2,
       },
       {
-        data: [220, 250, 285, 310, 310, 310, 310],
-        backgroundColor: "#404040",
-        barThickness: 30,
-        stack: "stack1",
+        label: "China",
+        data: [28, 47, 62, 88],
+        borderColor: "#FB6D8E",
+        backgroundColor: "#FB6D8E",
+        borderWidth: 2,
+      },
+      {
+        label: "Brazil",
+        data: [35, 45, 51, 78],
+        borderColor: "#1B4CB7",
+        backgroundColor: "#1B4CB7",
+        borderWidth: 2,
+      },
+      {
+        label: "Germany",
+        data: [42, 58, 62, 80],
+        borderColor: "#01B2D5",
+        backgroundColor: "#01B2D5",
+        borderWidth: 2,
       },
     ],
   };
@@ -28,7 +41,7 @@ export default function Chart() {
     scales: {
       x: { display: false },
       y: {
-        stacked: true,
+        display: true,
       },
     },
     plugins: {
@@ -40,9 +53,38 @@ export default function Chart() {
       },
     },
   };
+
   return (
-    <div className="overflow-auto w-[700px] h-[400px]">
-      <BarChart options={chart1Options} data={chart1Data} />
+    <div className=" w-full h-[450px] flex flex-col items-center">
+      <div className="w-[900px] h-[400px]">
+        <BarChart options={chart1Options} data={chart1Data} />
+      </div>
+      <span className=" pt-8 flex flex-row gap-3">
+        <span className="flex flex-row items-center gap-2">
+          <div className=" text-[#725FFE]">
+            <RiBarChartFill />
+          </div>
+          <span>USA</span>
+        </span>
+        <span className="flex flex-row  items-center gap-2">
+          <div className="  text-[#FB6D8E] ">
+            <RiBarChartFill />
+          </div>
+          <span>China</span>
+        </span>
+        <span className="flex flex-row  items-center gap-2">
+          <div className="  text-[#1B4CB7] ">
+            <RiBarChartFill />
+          </div>
+          <span>Brazil</span>
+        </span>
+        <span className="flex flex-row items-center gap-2">
+          <div className="  text-[#01B2D5] ">
+            <RiBarChartFill />
+          </div>
+          <span>Germany</span>
+        </span>
+      </span>
     </div>
   );
 }

@@ -51,7 +51,7 @@ flex flex-col items-start rounded-xl"
             <div>
               <Title page="Chart" title="Area" />
             </div>
-            <div className="pt-8 w-full">
+            <div className="pt-8 w-full  flex items-center justify-center overflow-auto">
               <Chart />
             </div>
           </div>
