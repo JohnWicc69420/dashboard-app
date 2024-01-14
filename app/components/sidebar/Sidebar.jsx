@@ -9,7 +9,6 @@ import Settings from "../../components/settings/Settings";
 import { IoSettingsOutline } from "react-icons/io5";
 import { setOpenSettings } from "@/redux/features/settingsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 
 export default function Sidebar() {
   const { handleSideBar, openSidebar } = useContext(Context);

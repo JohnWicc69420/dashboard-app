@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
-import Title from "../../pages/Title";
+import Title from "../components/Title";
 import Chart from "./Chart";
 
 export default function Area() {
@@ -49,9 +49,9 @@ dark:bg-[#1E2228] w-full pageSize overflow-x-auto md:pl-[285px] p-8`}
 flex flex-col items-start rounded-xl"
           >
             <div>
-              <Title page="Chart" title="Bar" />
+              <Title page="Chart" title="Pie" />
             </div>
-            <div className="pt-8 w-full flex items-center justify-center overflow-x-auto">
+            <div className="pt-8 w-full  flex items-center justify-center overflow-auto">
               <Chart />
             </div>
           </div>
