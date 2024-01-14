@@ -8,33 +8,34 @@ export default function Chart() {
       {
         label: "USA",
         data: [35, 45, 66, 84],
-        borderColor: "#725FFE",
-        backgroundColor: "#725FFE",
+        borderColor: "#B2FFFF",
+        backgroundColor: "#B2FFFF",
         borderWidth: 2,
       },
       {
         label: "China",
         data: [28, 47, 62, 88],
-        borderColor: "#FB6D8E",
-        backgroundColor: "#FB6D8E",
+        borderColor: "#80FFFF",
+        backgroundColor: "#80FFFF",
         borderWidth: 2,
       },
       {
         label: "Brazil",
         data: [35, 45, 51, 78],
-        borderColor: "#1B4CB7",
-        backgroundColor: "#1B4CB7",
+        borderColor: "#40FFFF",
+        backgroundColor: "#40FFFF",
         borderWidth: 2,
       },
       {
         label: "Germany",
         data: [42, 58, 62, 80],
-        borderColor: "#01B2D5",
-        backgroundColor: "#01B2D5",
+        borderColor: "#10f8f8",
+        backgroundColor: "#10f8f8",
         borderWidth: 2,
       },
     ],
   };
+
   const chart1Options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -61,25 +62,25 @@ export default function Chart() {
       </div>
       <span className=" pt-8 flex flex-row gap-3">
         <span className="flex flex-row items-center gap-2">
-          <div className=" text-[#725FFE]">
+          <div className=" text-[#b2ffff]">
             <RiBarChartFill />
           </div>
           <span>USA</span>
         </span>
         <span className="flex flex-row  items-center gap-2">
-          <div className="  text-[#FB6D8E] ">
+          <div className="  text-[#80ffff] ">
             <RiBarChartFill />
           </div>
           <span>China</span>
         </span>
         <span className="flex flex-row  items-center gap-2">
-          <div className="  text-[#1B4CB7] ">
+          <div className="  text-[#40ffff] ">
             <RiBarChartFill />
           </div>
           <span>Brazil</span>
         </span>
         <span className="flex flex-row items-center gap-2">
-          <div className="  text-[#01B2D5] ">
+          <div className="  text-[#10cccc] ">
             <RiBarChartFill />
           </div>
           <span>Germany</span>

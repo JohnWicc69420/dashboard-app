@@ -4,33 +4,18 @@ import { RiSkipLeftLine } from "react-icons/ri";
 import { MdNavigateBefore } from "react-icons/md";
 import { MdNavigateNext } from "react-icons/md";
 import { RiSkipRightLine } from "react-icons/ri";
-import { useState } from "react";
+import { MdOutlineLocationOn } from "react-icons/md";
+import { IoSearchOutline } from "react-icons/io5";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 
 export default function Container() {
-  const getBgColor = (status) => {
-    switch (status) {
-      case "Pending":
-        return "bg-[#FC9D78]";
-      case "Complete":
-        return "bg-[#88D68B]";
-      case "Active":
-        return "bg-[#04B3D9]";
-      case "Canceled":
-        return "bg-[#FD6F8F]";
-      case "Rejected":
-        return "bg-[#FD1B06]";
-      default:
-        return "bg-[#04B3D9]";
-    }
-  };
-
   const bgColor = useSelector((state) => state.color.selectedBgColor);
 
   const numbers = [
     { id: 1, pageNo: 1 },
     { id: 2, pageNo: 2 },
-    { id: 3, pageNo: 3 },
   ];
 
   const [startIndex, setStartIndex] = useState(0);
@@ -43,7 +28,7 @@ export default function Container() {
   };
 
   const handleNextIndex = (items) => {
-    setStartIndex((prev) => Math.min(prev + items, 20));
+    setStartIndex((prev) => Math.min(prev + items, 10));
   };
   const handlePrevIndex = (items) => {
     setStartIndex((prev) => Math.max(prev - items, 0));
@@ -52,7 +37,7 @@ export default function Container() {
   const [selectedBoxId, setSelectedBoxId] = useState(numbers[0].id);
 
   const incrementBoxId = (pages) => {
-    setSelectedBoxId((prev) => Math.min(prev + pages, 3));
+    setSelectedBoxId((prev) => Math.min(prev + pages, 2));
   };
   const decrementBoxId = (pages) => {
     setSelectedBoxId((prev) => Math.max(prev - pages, 1));
@@ -62,87 +47,85 @@ export default function Container() {
     setSelectedBoxId(id);
   };
 
-  const [allChecked, setAllChecked] = useState(false);
-  const handleAllChecked = (isChecked) => {
-    setAllChecked(isChecked);
-    setSelectedBoxes(isChecked ? data.map((item) => item.id) : []);
+  const [employees, setEmployees] = useState("");
+
+  const handleEmployees = (id) => {
+    setEmployees(id);
   };
 
-  const [selectedBoxes, setSelectedBoxes] = useState([]);
-  const handleSelectedBoxes = (itemId) => {
-    setSelectedBoxes((prevSelectedBoxes) => {
-      if (prevSelectedBoxes.includes(itemId)) {
-        return prevSelectedBoxes.filter((id) => id !== itemId);
-      } else {
-        return [...prevSelectedBoxes, itemId];
-      }
-    });
-  };
-
+  const filteredData = data
+    .slice(startIndex, lastIndex)
+    .filter((item) =>
+      item.name.toLowerCase().includes(employees.toLowerCase())
+    );
   return (
     <>
       <div className="container overflow-x-auto">
         <table className="w-full ">
           <thead>
-            <tr className="border text-[#b1b1b1] text-sm w-full">
-              <th className="p-4">
-                <input
-                  style={{
-                    width: "15px",
-                    height: "15px",
-                    cursor: "pointer",
-                  }}
-                  type="checkbox"
-                  checked={allChecked}
-                  onChange={(e) => handleAllChecked(e.target.checked)}
-                />
+            <tr className="border bg-[#f5f5f5] text-sm w-full dark:bg-[#1e2228]/[0.5] ">
+              <th colSpan={4}></th>
+              <th colSpan={2} className="">
+                <div className=" flex items-center justify-end right-0 pr-4">
+                  <input
+                    className=" p-1 m-3 font-normal bg-[#f5f5f5] dark:bg-[#1e2228]/[0.000001] border-b-2
+                     border-[#aaa] outline-none text-[#999] focus:border-[#2ab9bf]"
+                    type="text"
+                    onChange={(e) => handleEmployees(e.target.value)}
+                    placeholder="Search Employee"
+                  />
+                  <span className=" text-xl cursor-pointer">
+                    <IoSearchOutline />
+                  </span>
+                </div>
               </th>
-              <th className="p-4 font-medium">Name</th>
-              <th className="p-4 font-medium">Project Name</th>
-              <th className="p-4 font-medium">Status</th>
-              <th className="p-4 font-medium">Weeks</th>
-              <th className="p-4 font-medium">Budget</th>
-              <th className="p-4 font-medium">Location</th>
-              <th className="p-4 font-medium">Customer ID</th>
+            </tr>
+            <tr className="border text-[#b1b1b1] text-sm w-full">
+              <th className="p-4 font-medium">Employee</th>
+              <th className="p-4 font-medium">Designation</th>
+              <th className="p-4 font-medium">Country</th>
+              <th className="p-4 font-medium">Hire Date</th>
+              <th className="p-4 font-medium">Reports To</th>
+              <th className="p-4 font-medium">Employee ID</th>
             </tr>
           </thead>
           <tbody>
-            {data.slice(startIndex, lastIndex).map((item) => (
-              <tr
-                key={item.id}
-                className="border text-xs text-[#454545] text-center dark:text-[#b1b1b1] hover:bg-[#eee] dark:hover:bg-[#1E2228] w-full"
-              >
-                <td className="p-4">
-                  <input
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      cursor: "pointer",
-                    }}
-                    checked={selectedBoxes.includes(item.id)}
-                    type="checkbox"
-                    onChange={() => handleSelectedBoxes(item.id)}
-                  />
-                </td>
-                <td className="p-4">yo</td>
-                <td className="p-4">{item.item}</td>
-                <td className="p-4">{item.customerName}</td>
-                <td className="p-4">
-                  <span>$</span>
-                  {item.totalAmount}
-                </td>
-                <td className="p-4">
-                  <span
-                    className={`${getBgColor(
-                      item.status
-                    )} py-2 px-3 rounded-3xl text-[#fff]`}
-                  >
-                    {item.status}
-                  </span>
-                </td>
-                <td className="p-4">{item.orderId}</td>
-                <td className="p-4">{item.location}</td>
-              </tr>
+            {filteredData.map((item) => (
+              <React.Fragment>
+                <tr
+                  key={item.id}
+                  className="border text-xs text-[#454545] text-center dark:text-[#b1b1b1] hover:bg-[#eee] dark:hover:bg-[#1E2228] w-full"
+                >
+                  <td className="p-4">
+                    <div className="flex items-center gap-3 pl-1 md:pl-[25%]">
+                      <span className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden">
+                        <Image
+                          className=" w-full h-full object-cover"
+                          src={item.img}
+                          width={100}
+                          height={100}
+                          alt=""
+                        ></Image>
+                      </span>
+                      {item.name}
+                    </div>
+                  </td>
+                  <td className="p-4">{item.designation}</td>
+                  <td className="p-4">
+                    <div className="flex items-center justify-center">
+                      <div className="flex items-center gap-1">
+                        <span>
+                          <MdOutlineLocationOn />
+                        </span>
+                        {item.country}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="p-4">{item.hireDate}</td>
+                  <td className="p-4">{item.reportsTo}</td>
+                  <td className="p-4">{item.employeeID}</td>
+                </tr>
+              </React.Fragment>
             ))}
           </tbody>
           <tfoot>
@@ -179,7 +162,8 @@ export default function Container() {
                           item.id === selectedBoxId
                             ? `${bgColor} text-[#fff]`
                             : ""
-                        } py-1 px-3 rounded-full text-sm transition-colors cursor-pointer`}
+                        } w-7 h-7 flex items-center justify-center rounded-full 
+                        text-sm transition-colors cursor-pointer`}
                       >
                         {item.pageNo}
                       </span>
@@ -206,7 +190,7 @@ export default function Container() {
                 </div>
               </td>
               <td colSpan={3} className="px-6 py-3 text-xs text-right">
-                {selectedBoxId} <span>of 3 pages (27 items)</span>
+                {selectedBoxId} <span>of 2 pages (18 items)</span>
               </td>
             </tr>
           </tfoot>

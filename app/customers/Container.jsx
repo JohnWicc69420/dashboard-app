@@ -6,19 +6,18 @@ import { MdNavigateNext } from "react-icons/md";
 import { RiSkipRightLine } from "react-icons/ri";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 
 export default function Container() {
   const getBgColor = (status) => {
     switch (status) {
       case "Pending":
-        return "bg-[#FC9D78]";
+        return "bg-[#F8C110]";
       case "Complete":
         return "bg-[#88D68B]";
       case "Active":
         return "bg-[#04B3D9]";
-      case "Canceled":
-        return "bg-[#FD6F8F]";
-      case "Rejected":
+      case "Cancel":
         return "bg-[#FD1B06]";
       default:
         return "bg-[#04B3D9]";
@@ -124,24 +123,38 @@ export default function Container() {
                     onChange={() => handleSelectedBoxes(item.id)}
                   />
                 </td>
-                <td className="p-4">yo</td>
-                <td className="p-4">{item.item}</td>
-                <td className="p-4">{item.customerName}</td>
                 <td className="p-4">
-                  <span>$</span>
-                  {item.totalAmount}
+                  <div className="flex gap-4 items-center">
+                    <span className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
+                      <Image
+                        className=" w-full h-full object-cover"
+                        src={item.customerImg}
+                        width={100}
+                        height={100}
+                        alt=""
+                      ></Image>
+                    </span>
+                    <span className="flex flex-col items-center gap-1">
+                      <span>{item.customerName}</span>
+                      <span>{item.customerEmail}</span>
+                    </span>
+                  </div>
                 </td>
-                <td className="p-4">
-                  <span
-                    className={`${getBgColor(
-                      item.status
-                    )} py-2 px-3 rounded-3xl text-[#fff]`}
-                  >
-                    {item.status}
-                  </span>
+                <td className="p-4">{item.projectName}</td>
+                <td className=" p-4">
+                  <div className="gap-2 flex items-center justify-center">
+                    <div
+                      className={`${getBgColor(
+                        item.status
+                      )} w-[10px] h-[10px] rounded-3xl `}
+                    ></div>
+                    <span>{item.status}</span>
+                  </div>
                 </td>
-                <td className="p-4">{item.orderId}</td>
+                <td className="p-4">{item.weeks}</td>
+                <td className="p-4">{item.budget}</td>
                 <td className="p-4">{item.location}</td>
+                <td className="p-4">{item.customerId}</td>
               </tr>
             ))}
           </tbody>
@@ -179,7 +192,7 @@ export default function Container() {
                           item.id === selectedBoxId
                             ? `${bgColor} text-[#fff]`
                             : ""
-                        } py-1 px-3 rounded-full text-sm transition-colors cursor-pointer`}
+                        } w-7 h-7 flex items-center justify-center rounded-full text-sm transition-colors cursor-pointer`}
                       >
                         {item.pageNo}
                       </span>

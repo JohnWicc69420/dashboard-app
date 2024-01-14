@@ -85,19 +85,21 @@ export default function Container() {
                 key={item.id}
                 className="border text-xs text-[#454545] text-center dark:text-[#b1b1b1] hover:bg-[#eee] dark:hover:bg-[#1E2228] w-full"
               >
-                <td className=" pl-8 py-[10px]">
-                  <div
-                    className="flex items-center justify-center
+                <td className=" py-[10px]">
+                  <span className="flex justify-center">
+                    <div
+                      className="flex text-center items-center
                    rounded-xl overflow-hidden h-[65px] w-[65px]"
-                  >
-                    <Image
-                      className=" w-full h-full object-cover"
-                      src={item.img}
-                      width={70}
-                      height={70}
-                      alt=""
-                    />
-                  </div>
+                    >
+                      <Image
+                        className=" w-full h-full object-cover"
+                        src={item.img}
+                        width={70}
+                        height={70}
+                        alt=""
+                      />
+                    </div>
+                  </span>
                 </td>
                 <td className="p-4">{item.item}</td>
                 <td className="p-4">{item.customerName}</td>
@@ -153,7 +155,8 @@ export default function Container() {
                           item.id === selectedBoxId
                             ? `${bgColor} text-[#fff]`
                             : ""
-                        } py-1 px-3 rounded-full text-sm transition-colors cursor-pointer`}
+                        } w-7 h-7 flex items-center justify-center rounded-full 
+                        text-sm transition-colors cursor-pointer`}
                       >
                         {item.pageNo}
                       </span>

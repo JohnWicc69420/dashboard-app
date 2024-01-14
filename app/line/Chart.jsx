@@ -32,7 +32,7 @@ export default function Chart() {
     datasets: [
       {
         label: "USA",
-        data: [29, 45, 58, 55, 76, 81, 94],
+        data: [29, 41, 50, 55, 76, 81, 94],
         borderColor: "#725FFE",
         backgroundColor: "#725FFE",
         borderWidth: 2,
@@ -46,7 +46,7 @@ export default function Chart() {
       },
       {
         label: "Brazil",
-        data: [30, 25, 42, 57, 49, 75, 92],
+        data: [30, 25, 42, 57, 57, 75, 92],
         borderColor: "#1B4CB7",
         backgroundColor: "#1B4CB7",
         borderWidth: 2,
