@@ -2,7 +2,7 @@ const data = [
   {
     id: 1001,
     customerName: "John Doe",
-    customerImg: "/avatar.jpg",
+    customerImg: "/avatar1.jpg",
     customerEmail: "john@gmail.com",
     projectName: "Enterprise Resource Implementation",
     status: "Pending",
