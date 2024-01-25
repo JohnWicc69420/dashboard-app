@@ -1,9 +1,6 @@
 "use client";
 import Profile from "./Profile";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { CiSearch } from "react-icons/ci";
-import { BsCart2 } from "react-icons/bs";
-import { LuMessageCircle } from "react-icons/lu";
 import { GoBell } from "react-icons/go";
 import { useContext, useState } from "react";
 import { Context } from "@/app/context/ContextProvider";
@@ -12,9 +9,15 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export default function Navbar() {
   const { handleSideBar, openSidebar } = useContext(Context);
-  const [openCart, setOpenCart] = useState(false);
-  const handleOpenCart = () => {
-    setOpenCart((prevState) => !prevState);
+  const [openNotif, setOpenNotif] = useState(false);
+  const [openProfile, setOpenProfile] = useState(false);
+
+  const handleSetOpenProfile = () => {
+    setOpenProfile((prev) => !prev);
+  };
+
+  const handleSetOpenNotif = () => {
+    setOpenNotif((prev) => !prev);
   };
 
   const textColor = useSelector((state) => state.color.selectedTextColor);
@@ -40,15 +43,24 @@ export default function Navbar() {
               <RxHamburgerMenu className=" cursor-pointer md:hidden block" />
             )}
           </span>
-          <CiSearch className=" cursor-pointer" />
         </div>
         <div className="right flex text-xl gap-4 items-center">
-          <span onClick={handleOpenCart}>
-            <BsCart2 className=" cursor-pointer" />
-          </span>
-          <LuMessageCircle className=" cursor-pointer" />
-          <GoBell className=" cursor-pointer" />
-          <Profile className=" cursor-pointer" />
+          <div onClick={handleSetOpenNotif} className="relative">
+            <GoBell className=" cursor-pointer" />
+            {openNotif && (
+              <div className=" absolute">
+                <div>yo</div>
+              </div>
+            )}
+          </div>
+          <div onClick={handleSetOpenProfile} className="relative">
+            <Profile className=" cursor-pointer" />
+            {openProfile && (
+              <div className=" absolute">
+                <div>yo</div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>
