@@ -7,6 +7,7 @@ import { RiSkipRightLine } from "react-icons/ri";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
+import { BsTrash } from "react-icons/bs";
 
 export default function Container() {
   const getBgColor = (status) => {
@@ -78,11 +79,33 @@ export default function Container() {
     });
   };
 
+  const [updatedData, setUpdatedData] = useState(data);
+  const handleDeleteBoxes = () => {
+    updatedData.length > 0 &&
+      setUpdatedData(data.filter((item) => !selectedBoxes.includes(item.id)));
+  };
+
   return (
     <>
       <div className="container overflow-x-auto">
         <table className="w-full ">
           <thead>
+            <tr className="border bg-[#f5f5f5] text-sm w-full dark:bg-[#1e2228]/[0.5] ">
+              <th colSpan={2}>
+                <div
+                  onClick={handleDeleteBoxes}
+                  className=" flex items-center gap-1 cursor-pointer pl-4 text-center py-2"
+                >
+                  <span className=" text-md text-[#555]">
+                    <BsTrash />
+                  </span>
+                  <span className=" text-md text-[#555] font-medium ">
+                    Delete
+                  </span>
+                </div>
+              </th>
+              <th colSpan={6} className=""></th>
+            </tr>
             <tr className="border text-[#b1b1b1] text-sm w-full">
               <th className="p-4">
                 <input
@@ -106,7 +129,7 @@ export default function Container() {
             </tr>
           </thead>
           <tbody>
-            {data.slice(startIndex, lastIndex).map((item) => (
+            {updatedData.slice(startIndex, lastIndex).map((item) => (
               <tr
                 key={item.id}
                 className="border text-xs text-[#454545] text-center dark:text-[#b1b1b1] hover:bg-[#eee] dark:hover:bg-[#1E2228] w-full"
