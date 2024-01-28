@@ -31,7 +31,6 @@ export default function Sidebar() {
 
   return (
     <>
-      <div></div>
       <span
         onClick={handleOpenSettings}
         className={`cursor-pointer fixed bottom-4 right-4 text-[#fff] flex 
@@ -44,7 +43,7 @@ export default function Sidebar() {
       <div
         className={`bg-[#fff] dark:bg-[#33373D] shadow-md md:w-[260px]
          w-[200px] h-[100vh]  p-4 z-50 translate-x-[-260px]
-       flex flex-col gap-4 fixed top-0 left-0 transition-all md:translate-x-[0px] ${
+       flex flex-col gap-4 fixed top-0 left-0 transition-all overflow-x-auto md:translate-x-[0px] ${
          openSidebar ? "translate-x-[0px]" : ""
        }`}
       >
@@ -55,6 +54,9 @@ export default function Sidebar() {
         {data.map((item) => (
           <div
             key={item.id}
+            className={`${
+              item.icon !== "null" && "hover:bg-slate-200 rounded-lg"
+            } `}
             onClick={() => {
               handleBoxClick(item.id);
               handleSideBar();

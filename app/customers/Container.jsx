@@ -242,7 +242,8 @@ export default function Container() {
                 </div>
               </td>
               <td colSpan={3} className="px-6 py-3 text-xs text-right">
-                {selectedBoxId} <span>of 3 pages (27 items)</span>
+                {selectedBoxId}{" "}
+                <span>of 3 pages ({updatedData.length} items)</span>
               </td>
             </tr>
           </tfoot>
