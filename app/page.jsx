@@ -78,7 +78,7 @@ export default function Home() {
         <div
           className={`${
             openSettings ? "brightness-50" : ""
-          } bg-[#F9F9F9] dark:bg-[#1E2228] flex items-center 
+          } bg-[#F9F9F9] dark:bg-[#1E2228] flex items-center
         justify-center w-full pageSize md:pl-[285px] p-8`}
         >
           <ThreeCircles
@@ -104,7 +104,7 @@ export default function Home() {
       <div
         className={`${
           openSettings ? "brightness-50" : ""
-        } bg-[#F9F9F9] transition-color  dark:bg-[#1E2228] w-full pageSize md:pl-[285px]`}
+        } bg-[#F9F9F9] transition-color  dark:bg-[#1E2228] overflow-x-auto pageSize md:pl-[285px]`}
       >
         <div className="top flex items-center gap-4 pt-5 flex-col xl:flex-row">
           <div>
