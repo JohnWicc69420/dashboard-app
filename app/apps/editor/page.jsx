@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
 import Title from "../../components/Title";
+import App from "./Editor";
 
 export default function Area() {
   const openSettings = useSelector((state) => state.settings.openSettings);
@@ -49,6 +50,9 @@ flex flex-col items-start rounded-xl"
           >
             <div className="px-8">
               <Title page="App" title="Editor" />
+            </div>
+            <div className=" max-w-[1280px] p-8 text-center">
+              <App />
             </div>
           </div>
         </div>
