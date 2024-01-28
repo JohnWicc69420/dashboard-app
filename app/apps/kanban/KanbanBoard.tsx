@@ -1,6 +1,6 @@
-import PlusIcon from "../icons/PlusIcon";
+import PlusIcon from "./icons/PlusIcon";
 import { useMemo, useState } from "react";
-import { Column, Id, Task } from "../types";
+import { Column, Id, Task } from "./types";
 import ColumnContainer from "./ColumnContainer";
 import {
   DndContext,

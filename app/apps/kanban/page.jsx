@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
 import Title from "../../components/Title";
+import KanbanBoard from "./KanbanBoard";
 
 export default function Area() {
   const openSettings = useSelector((state) => state.settings.openSettings);
@@ -49,6 +50,9 @@ flex flex-col items-start rounded-xl"
           >
             <div className="px-8">
               <Title page="App" title="Kanban" />
+            </div>
+            <div className=" overflow-x-auto">
+              <KanbanBoard />
             </div>
           </div>
         </div>
