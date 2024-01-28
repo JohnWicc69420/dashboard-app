@@ -2,8 +2,7 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
-import Title from "../components/Title";
-import Chart from "./Chart";
+import Title from "../../components/Title";
 
 export default function Area() {
   const openSettings = useSelector((state) => state.settings.openSettings);
@@ -49,11 +48,9 @@ dark:bg-[#1E2228] w-full pageSize overflow-x-auto md:pl-[285px] p-8`}
 flex flex-col items-start rounded-xl"
           >
             <div className="px-8">
-              <Title page="Chart" title="Area" />
+              <Title page="App" title="Calendar" />
             </div>
-            <div className="pt-8 w-full flex items-center justify-center overflow-auto">
-              <Chart />
-            </div>
+            <div>{/* this here */}</div>
           </div>
         </div>
       )}

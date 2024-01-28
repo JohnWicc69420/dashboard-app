@@ -43,11 +43,11 @@ export default function Sidebar() {
       <div
         className={`bg-[#fff] dark:bg-[#33373D] shadow-md md:w-[260px]
          w-[200px] h-[100vh]  p-4 z-50 translate-x-[-260px]
-       flex flex-col gap-4 fixed top-0 left-0 transition-all overflow-x-auto md:translate-x-[0px] ${
+       flex flex-col gap-3 fixed top-0 left-0 transition-all overflow-x-auto md:translate-x-[0px] ${
          openSidebar ? "translate-x-[0px]" : ""
        }`}
       >
-        <div className="text-slate-900 dark:text-[#F8FAFF] font-extrabold text-2xl flex items-center gap-3 mb-4">
+        <div className="text-slate-900 dark:text-[#F8FAFF] font-extrabold text-2xl flex items-center gap-3 mb-6">
           <SiShopware />
           <span>Shoppy</span>
         </div>
@@ -55,7 +55,8 @@ export default function Sidebar() {
           <div
             key={item.id}
             className={`${
-              item.icon !== "null" && "hover:bg-slate-200 rounded-lg"
+              item.icon !== "null" &&
+              "hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
             } `}
             onClick={() => {
               handleBoxClick(item.id);

@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
-import Title from "../components/Title";
+import Title from "../../components/Title";
 import Chart from "./Chart";
 
 export default function Area() {

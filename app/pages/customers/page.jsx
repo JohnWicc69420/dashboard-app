@@ -1,6 +1,6 @@
 "use client";
 import { useSelector } from "react-redux";
-import Title from "../components/Title";
+import Title from "../../components/Title";
 import Container from "./Container";
 import { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
