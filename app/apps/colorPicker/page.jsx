@@ -3,8 +3,11 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { ThreeCircles } from "react-loader-spinner";
 import Title from "../../components/Title";
+import SwatchesColorPickerComponent from "./SwatchesColorPickerComponent";
+import SketchColorPickerComponent from "./SketchColorPickerComponent";
+import TwitterColorPickerComponent from "./TwitterColorPickerComponent";
 
-export default function Area() {
+export default function Page() {
   const openSettings = useSelector((state) => state.settings.openSettings);
   const selectedColor = useSelector((state) => state.color.selectedBgColor);
   const [isLoading, setIsLoading] = useState(true);
@@ -49,6 +52,11 @@ flex flex-col items-start rounded-xl"
           >
             <div className="px-8">
               <Title page="App" title="Color Picker" />
+            </div>
+            <div>
+              <SwatchesColorPickerComponent />
+              <SketchColorPickerComponent />
+              <TwitterColorPickerComponent />
             </div>
           </div>
         </div>
