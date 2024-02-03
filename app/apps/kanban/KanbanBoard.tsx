@@ -120,16 +120,8 @@ function KanbanBoard() {
 
   return (
     <div
-      className="
-        m-auto
-        flex
-        min-h-screen
-        w-full
-        items-center
-        overflow-x-auto
-        overflow-y-hidden
-        px-[40px]
-    "
+      className=" flex min-h-screen w-full items-center overflow-x-auto
+        overflow-y-hidden px-[40px]"
     >
       <DndContext
         sensors={sensors}
@@ -137,7 +129,7 @@ function KanbanBoard() {
         onDragEnd={onDragEnd}
         onDragOver={onDragOver}
       >
-        <div className="m-auto flex gap-4">
+        <div className="flex gap-4">
           <div className="flex gap-4">
             <SortableContext items={columnsId}>
               {columns.map((col) => (
@@ -158,21 +150,9 @@ function KanbanBoard() {
             onClick={() => {
               createNewColumn();
             }}
-            className="
-      h-[60px]
-      w-[350px]
-      min-w-[350px]
-      cursor-pointer
-      rounded-lg
-      bg-mainBackgroundColor
-      border-2
-      border-columnBackgroundColor
-      p-4
-      ring-rose-500
-      hover:ring-2
-      flex
-      gap-2
-      "
+            className=" h-[60px] w-[250px] min-w-[250px] cursor-pointer rounded-lg 
+            bg-mainBackgroundColor border-2 border-columnBackgroundColor p-4
+             ring-slate-100 hover:ring-2 flex gap-2 "
           >
             <PlusIcon />
             Add Column
@@ -310,14 +290,12 @@ function KanbanBoard() {
 
     if (!isActiveATask) return;
 
-    // Im dropping a Task over another Task
     if (isActiveATask && isOverATask) {
       setTasks((tasks) => {
         const activeIndex = tasks.findIndex((t) => t.id === activeId);
         const overIndex = tasks.findIndex((t) => t.id === overId);
 
         if (tasks[activeIndex].columnId != tasks[overIndex].columnId) {
-          // Fix introduced after video recording
           tasks[activeIndex].columnId = tasks[overIndex].columnId;
           return arrayMove(tasks, activeIndex, overIndex - 1);
         }
@@ -328,7 +306,6 @@ function KanbanBoard() {
 
     const isOverAColumn = over.data.current?.type === "Column";
 
-    // Im dropping a Task over a column
     if (isActiveATask && isOverAColumn) {
       setTasks((tasks) => {
         const activeIndex = tasks.findIndex((t) => t.id === activeId);
@@ -342,7 +319,6 @@ function KanbanBoard() {
 }
 
 function generateId() {
-  /* Generate a random number between 0 and 10000 */
   return Math.floor(Math.random() * 10001);
 }
 

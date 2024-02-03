@@ -59,8 +59,8 @@ function ColumnContainer({
         ref={setNodeRef}
         style={style}
         className="
-      bg-columnBackgroundColor opacity-40 border-2 border-pink-500
-      w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col
+      bg-columnBackgroundColor opacity-40 border-2 border-slate-500
+      w-[250px] h-[500px] max-h-[500px] rounded-md flex flex-col
       "
       ></div>
     );
@@ -71,8 +71,8 @@ function ColumnContainer({
       ref={setNodeRef}
       style={style}
       className="
-  bg-columnBackgroundColor w-[350px] h-[500px] max-h-[500px]
- rounded-md flex flex-col
+  bg-columnBackgroundColor w-[250px] h-[500px] max-h-[500px]
+ border-4 rounded-md flex flex-col
   "
     >
       {/* Column title */}
@@ -83,19 +83,16 @@ function ColumnContainer({
           setEditMode(true);
         }}
         className="
-      bg-mainBackgroundColor
-      text-md
-      h-[60px]
-      cursor-grab
-      rounded-md
-      rounded-b-none p-3 font-bold border-columnBackgroundColor border-4 flex items-center justify-between
+      bg-mainBackgroundColor text-md h-[60px] cursor-grab rounded-md rounded-b-none
+       p-3 font-bold border-columnBackgroundColor border-b-4 flex items-center 
+       justify-between
       "
       >
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
           <div
             className="
         flex justify-center items-center 
-        bg-columnBackgroundColor px-2 py-1text-sm rounded-full
+        bg-columnBackgroundColor px-2 py-1 text-sm rounded-full
         "
           >
             0
@@ -103,7 +100,7 @@ function ColumnContainer({
           {!editMode && column.title}
           {editMode && (
             <input
-              className="bg-black focus:border-rose-500 border rounded outline-none px-2"
+              className="bg-black focus:border-slate-500 border rounded outline-none px-2"
               value={column.title}
               onChange={(e) => updateColumn(column.id, e.target.value)}
               autoFocus
@@ -144,7 +141,7 @@ function ColumnContainer({
       </div>
       {/* Column footer */}
       <button
-        className="flex gap-2 items-center border-columnBackgroundColor border-2 rounded-md p-4 border-x-columnBackgroundColor hover:bg-mainBackgroundColor hover:text-rose-500 active:bg-black"
+        className="flex gap-2 items-center border-columnBackgroundColor border-t-4 p-4 border-x-columnBackgroundColor hover:bg-mainBackgroundColor hover:text-slate-500 active:bg-black"
         onClick={() => {
           createTask(column.id);
         }}

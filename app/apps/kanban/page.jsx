@@ -24,7 +24,7 @@ export default function Area() {
         <div
           className={`${
             openSettings ? "brightness-50" : ""
-          } bg-[#F9F9F9] dark:bg-[#1E2228] flex items-center 
+          } bg-[#F9F9F9] dark:bg-[#1E2228] flex items-center
       justify-center w-full pageSize md:pl-[285px] p-8`}
         >
           <ThreeCircles
@@ -42,10 +42,10 @@ export default function Area() {
           className={`${
             openSettings ? "brightness-50" : ""
           } bg-[#F9F9F9] dark:text-[#B1B1B1] transition-color 
-dark:bg-[#1E2228] w-full pageSize overflow-x-auto md:pl-[285px] p-8`}
+dark:bg-[#1E2228] w-full pageSize md:pl-[285px] p-8`}
         >
           <div
-            className="pt-8 bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8]
+            className="pt-8 bg-[#fff] overflow-x-auto dark:bg-[#33373D] dark:text-[#CED2D8]
 flex flex-col items-start rounded-xl"
           >
             <div className="px-8">
