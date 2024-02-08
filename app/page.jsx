@@ -14,7 +14,7 @@ import Revenue from "./components/revenue/Revenue";
 import { ThreeCircles } from "react-loader-spinner";
 import { useState, useEffect } from "react";
 
-export const data = [
+const data = [
   {
     id: 1,
     icon: <IoPeopleOutline />,
@@ -56,7 +56,7 @@ export const data = [
     bg: "bg-[#EAF6F3]",
   },
 ];
-export default function Home() {
+export default function Page() {
   const selectedColor = useSelector((state) => state.color.selectedBgColor);
   const openSettings = useSelector((state) => state.settings.openSettings);
   const [isLoading, setIsLoading] = useState(true);
