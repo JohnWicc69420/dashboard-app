@@ -141,7 +141,8 @@ function ColumnContainer({
       </div>
       {/* Column footer */}
       <button
-        className="flex gap-2 items-center border-columnBackgroundColor border-t-4 p-4 border-x-columnBackgroundColor hover:bg-mainBackgroundColor hover:text-slate-500 active:bg-black"
+        className="flex gap-2 items-center border-columnBackgroundColor border-t-4 p-4
+         border-x-columnBackgroundColor hover:bg-mainBackgroundColor hover:text-slate-500 active:bg-black"
         onClick={() => {
           createTask(column.id);
         }}
