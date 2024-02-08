@@ -120,7 +120,7 @@ function KanbanBoard() {
 
   return (
     <div
-      className=" flex min-h-screen w-full items-center overflow-x-auto
+      className=" flex h-full py-16 w-full items-center overflow-x-auto
         overflow-y-hidden px-[40px]"
     >
       <DndContext

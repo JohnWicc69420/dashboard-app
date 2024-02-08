@@ -1,4 +1,3 @@
-// TwitterColorPickerComponent.js
 import React from "react";
 import { TwitterPicker } from "react-color";
 

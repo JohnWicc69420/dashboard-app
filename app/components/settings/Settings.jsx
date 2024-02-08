@@ -12,8 +12,8 @@ import { useSelector, useDispatch } from "react-redux";
 export default function Settings() {
   const { toggle, theme } = useContext(ThemeContext);
   const colors = [
-    { id: 1, textColor: "text-[#108EF3]", bgColor: "bg-[#108EF3]" },
-    { id: 2, textColor: "text-[#01B2D5]", bgColor: "bg-[#01B2D5]" },
+    { id: 1, textColor: "text-[#01B2D5]", bgColor: "bg-[#01B2D5]" },
+    { id: 2, textColor: "text-[#108EF3]", bgColor: "bg-[#108EF3]" },
     { id: 3, textColor: "text-[#725FFE]", bgColor: "bg-[#725FFE]" },
     { id: 4, textColor: "text-[#FB6D8E]", bgColor: "bg-[#FB6D8E]" },
     { id: 5, textColor: "text-[#1B4CB7]", bgColor: "bg-[#1B4CB7]" },

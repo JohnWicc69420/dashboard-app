@@ -31,8 +31,6 @@ export default function Container() {
   const numbers = [
     { id: 1, pageNo: 1 },
     { id: 2, pageNo: 2 },
-    { id: 3, pageNo: 3 },
-    { id: 4, pageNo: 4 },
   ];
 
   const [startIndex, setStartIndex] = useState(0);
@@ -45,7 +43,7 @@ export default function Container() {
   };
 
   const handleNextIndex = (items) => {
-    setStartIndex((prev) => Math.min(prev + items, 30));
+    setStartIndex((prev) => Math.min(prev + items, 10));
   };
   const handlePrevIndex = (items) => {
     setStartIndex((prev) => Math.max(prev - items, 0));
@@ -54,7 +52,7 @@ export default function Container() {
   const [selectedBoxId, setSelectedBoxId] = useState(numbers[0].id);
 
   const incrementBoxId = (pages) => {
-    setSelectedBoxId((prev) => Math.min(prev + pages, 4));
+    setSelectedBoxId((prev) => Math.min(prev + pages, 2));
   };
   const decrementBoxId = (pages) => {
     setSelectedBoxId((prev) => Math.max(prev - pages, 1));
@@ -174,8 +172,8 @@ export default function Container() {
                   <span
                     className=" cursor-pointer"
                     onClick={() => {
-                      handleNextIndex(40);
-                      incrementBoxId(3);
+                      handleNextIndex(20);
+                      incrementBoxId(1);
                     }}
                   >
                     <RiSkipRightLine />
@@ -183,7 +181,7 @@ export default function Container() {
                 </div>
               </td>
               <td colSpan={3} className="px-6 py-3 text-xs text-right">
-                {selectedBoxId} <span>of 4 pages (38 items)</span>
+                {selectedBoxId} <span>of 2 pages (20 items)</span>
               </td>
             </tr>
           </tfoot>

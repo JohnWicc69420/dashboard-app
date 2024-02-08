@@ -1,5 +1,7 @@
 "use client";
 import Profile from "./Profile";
+import Notif from "./Notif";
+import ProfileIcon from "./ProfileIcon";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { GoBell } from "react-icons/go";
 import { useContext, useState } from "react";
@@ -14,10 +16,16 @@ export default function Navbar() {
 
   const handleSetOpenProfile = () => {
     setOpenProfile((prev) => !prev);
+    if (openNotif) {
+      setOpenNotif((prev) => !prev);
+    }
   };
 
   const handleSetOpenNotif = () => {
     setOpenNotif((prev) => !prev);
+    if (openProfile) {
+      setOpenProfile((prev) => !prev);
+    }
   };
 
   const textColor = useSelector((state) => state.color.selectedTextColor);
@@ -27,14 +35,13 @@ export default function Navbar() {
       <div
         className={`${
           openSettings ? " brightness-50" : ""
-        } shadow-md transition-colors sticky top-0 flex 
+        } shadow-md sticky top-0 flex 
         dark:bg-[#1E2228] ${textColor}
          justify-between py-3 px-8 
       items-center bg-[#F9F9F9] h-14 z-40 md:pl-[285px] ${
         openSidebar ? "pl-[215px]" : ""
       }`}
       >
-        {console.log(textColor)}
         <div className="left flex text-2xl gap-4 items-center">
           <span onClick={handleSideBar}>
             {openSidebar ? (
@@ -45,19 +52,25 @@ export default function Navbar() {
           </span>
         </div>
         <div className="right flex text-xl gap-4 items-center">
-          <div onClick={handleSetOpenNotif} className="relative">
-            <GoBell className=" cursor-pointer" />
+          <div className="relative">
+            <GoBell className=" cursor-pointer" onClick={handleSetOpenNotif} />
             {openNotif && (
-              <div className=" absolute">
-                <div>yo</div>
+              <div className=" absolute right-0">
+                <div>
+                  <Notif handleSetOpenNotif={handleSetOpenNotif} />
+                </div>
               </div>
             )}
           </div>
-          <div onClick={handleSetOpenProfile} className="relative">
-            <Profile className=" cursor-pointer" />
+          <div className="relative">
+            <span onClick={handleSetOpenProfile}>
+              <ProfileIcon />
+            </span>
             {openProfile && (
-              <div className=" absolute">
-                <div>yo</div>
+              <div className=" absolute right-0">
+                <div>
+                  <Profile handleSetOpenProfile={handleSetOpenProfile} />
+                </div>
               </div>
             )}
           </div>

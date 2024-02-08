@@ -190,7 +190,7 @@ export default function Container() {
                 </div>
               </td>
               <td colSpan={3} className="px-6 py-3 text-xs text-right">
-                {selectedBoxId} <span>of 2 pages (18 items)</span>
+                {selectedBoxId} <span>of 2 pages (15 items)</span>
               </td>
             </tr>
           </tfoot>

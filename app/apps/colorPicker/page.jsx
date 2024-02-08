@@ -47,14 +47,15 @@ export default function Page() {
 dark:bg-[#1E2228] w-full pageSize overflow-x-auto md:pl-[285px] p-8`}
         >
           <div
-            className="pt-8 bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8]
-flex flex-col items-start rounded-xl"
+            className="pt-8 bg-[#fff] w-fit dark:bg-[#33373D] dark:text-[#CED2D8]
+flex flex-col items-start rounded-xl overflow-x-auto"
           >
             <div className="px-8">
               <Title page="App" title="Color Picker" />
             </div>
-            <div>
+            <div className=" flex py-12 pr-12 pl-6 gap-6 overflow-x-auto">
               <SwatchesColorPickerComponent />
+
               <SketchColorPickerComponent />
               <TwitterColorPickerComponent />
             </div>

@@ -177,7 +177,7 @@ export default function Revenue() {
                 <span className=" text-[#808080] text-sm">Expense</span>
               </span>
               <div>
-                <Link href="/line">
+                <Link href="/charts/line">
                   <div className="lineChart h-[100px] mb-7">
                     <LineChart
                       options={lineChartOptions}
@@ -194,7 +194,7 @@ export default function Revenue() {
               </div>
             </div>
             <div className="h-[300px] w-[1px] bg-[#808080] hidden md:block"></div>
-            <Link href="/bar">
+            <Link href="/charts/bar">
               <div className=" h-[325px] w-[325px]">
                 <BarChart options={chart1Options} data={chart1Data} />
               </div>
@@ -202,7 +202,7 @@ export default function Revenue() {
           </div>
         </div>
         <div className="right flex flex-col items-center gap-2">
-          <Link href="/bar">
+          <Link href="/charts/bar">
             <div
               className={`top ${bgColor} h-[200px] w-[350px] shadow-lg text-[#fff] p-3 
           pt-6 rounded-xl flex flex-col items-start`}
@@ -223,7 +223,7 @@ export default function Revenue() {
               </div>
             </div>
           </Link>
-          <Link href="/pie">
+          <Link href="/charts/pie">
             <div
               className="bottom bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8] 
           flex h-[200px] w-[350px] shadow-lg rounded-xl p-3 items-center 

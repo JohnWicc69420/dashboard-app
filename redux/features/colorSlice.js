@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Define the initial state
 const initialState = {
-  selectedBgColor: "bg-[#108EF3]",
-  selectedTextColor: "text-[#108EF3]",
+  selectedBgColor: "bg-[#01B2D5]",
+  selectedTextColor: "text-[#01B2D5]",
 };
 
 // Create a slice for the color state

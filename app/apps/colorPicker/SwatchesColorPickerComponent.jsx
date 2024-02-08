@@ -1,4 +1,3 @@
-// SwatchesColorPickerComponent.js
 import React from "react";
 import { SwatchesPicker } from "react-color";
 

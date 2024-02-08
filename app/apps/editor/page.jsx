@@ -45,13 +45,13 @@ export default function Area() {
 dark:bg-[#1E2228] w-full pageSize overflow-x-auto md:pl-[285px] p-8`}
         >
           <div
-            className="pt-8 bg-[#fff] dark:bg-[#33373D] dark:text-[#CED2D8]
-flex flex-col items-start rounded-xl"
+            className="pt-8 bg-[#fff] dark:bg-[#33373D] w-fit dark:text-[#CED2D8]
+flex flex-col items-start rounded-xl overflow-x-auto"
           >
             <div className="px-8">
               <Title page="App" title="Editor" />
             </div>
-            <div className=" max-w-[1280px] p-8 text-center">
+            <div className=" max-w-[1280px] py-12 pr-12 pl-8 text-center">
               <App />
             </div>
           </div>
