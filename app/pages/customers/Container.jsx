@@ -30,6 +30,7 @@ export default function Container() {
   const numbers = [
     { id: 1, pageNo: 1 },
     { id: 2, pageNo: 2 },
+    { id: 3, pageNo: 3 },
   ];
 
   const [startIndex, setStartIndex] = useState(0);
@@ -42,7 +43,7 @@ export default function Container() {
   };
 
   const handleNextIndex = (items) => {
-    setStartIndex((prev) => Math.min(prev + items, 10));
+    setStartIndex((prev) => Math.min(prev + items, 20));
   };
   const handlePrevIndex = (items) => {
     setStartIndex((prev) => Math.max(prev - items, 0));
@@ -51,7 +52,7 @@ export default function Container() {
   const [selectedBoxId, setSelectedBoxId] = useState(numbers[0].id);
 
   const incrementBoxId = (pages) => {
-    setSelectedBoxId((prev) => Math.min(prev + pages, 2));
+    setSelectedBoxId((prev) => Math.min(prev + pages, 3));
   };
   const decrementBoxId = (pages) => {
     setSelectedBoxId((prev) => Math.max(prev - pages, 1));
@@ -187,8 +188,8 @@ export default function Container() {
                   <span
                     className=" cursor-pointer"
                     onClick={() => {
-                      handlePrevIndex(20);
-                      decrementBoxId(1);
+                      handlePrevIndex(30);
+                      decrementBoxId(2);
                     }}
                   >
                     <RiSkipLeftLine />
@@ -232,8 +233,8 @@ export default function Container() {
                   <span
                     className=" cursor-pointer"
                     onClick={() => {
-                      handleNextIndex(20);
-                      incrementBoxId(1);
+                      handleNextIndex(30);
+                      incrementBoxId(2);
                     }}
                   >
                     <RiSkipRightLine />
@@ -242,7 +243,7 @@ export default function Container() {
               </td>
               <td colSpan={3} className="px-6 py-3 text-xs text-right">
                 {selectedBoxId}{" "}
-                <span>of 2 pages ({updatedData.length} items)</span>
+                <span>of 3 pages ({updatedData.length} items)</span>
               </td>
             </tr>
           </tfoot>

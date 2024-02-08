@@ -149,6 +149,36 @@ const data = [
     reportsTo: "Oscar",
     employeeID: "028",
   },
+  {
+    id: 2016,
+    name: "Oscar Davis",
+    img: "/avatar4.jpg",
+    designation: "Backend Developer",
+    country: "Canada",
+    hireDate: "15/04/2020",
+    reportsTo: "Pam",
+    employeeID: "094",
+  },
+  {
+    id: 2017,
+    name: "Pam Taylor",
+    img: "/avatar5.jpg",
+    designation: "UI/UX Designer",
+    country: "United Arab Emirates",
+    hireDate: "26/12/2016",
+    reportsTo: "Quinn",
+    employeeID: "069",
+  },
+  {
+    id: 2018,
+    name: "Quinn Thomas",
+    img: "/avatar6.jpg",
+    designation: "Full Stack Developer",
+    country: "Italy",
+    hireDate: "07/03/2018",
+    reportsTo: "Rob",
+    employeeID: "036",
+  },
 ];
 
 export default data;

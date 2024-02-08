@@ -90,8 +90,8 @@ export default function Container() {
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((item, index) => (
-              <React.Fragment key={index}>
+            {filteredData.map((item) => (
+              <React.Fragment>
                 <tr
                   key={item.id}
                   className="border text-xs text-[#454545] text-center dark:text-[#b1b1b1] hover:bg-[#eee] dark:hover:bg-[#1E2228] w-full"
@@ -190,7 +190,7 @@ export default function Container() {
                 </div>
               </td>
               <td colSpan={3} className="px-6 py-3 text-xs text-right">
-                {selectedBoxId} <span>of 2 pages (15 items)</span>
+                {selectedBoxId} <span>of 2 pages (18 items)</span>
               </td>
             </tr>
           </tfoot>
