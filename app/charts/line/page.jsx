@@ -5,7 +5,7 @@ import { ThreeCircles } from "react-loader-spinner";
 import Title from "../../components/Title";
 import Chart from "./Chart";
 
-export default function Area() {
+export default function Line() {
   const openSettings = useSelector((state) => state.settings.openSettings);
   const selectedColor = useSelector((state) => state.color.selectedBgColor);
   const [isLoading, setIsLoading] = useState(true);
