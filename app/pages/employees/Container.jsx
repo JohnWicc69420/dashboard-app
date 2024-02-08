@@ -90,8 +90,8 @@ export default function Container() {
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((item) => (
-              <React.Fragment>
+            {filteredData.map((item, index) => (
+              <React.Fragment key={index}>
                 <tr
                   key={item.id}
                   className="border text-xs text-[#454545] text-center dark:text-[#b1b1b1] hover:bg-[#eee] dark:hover:bg-[#1E2228] w-full"
