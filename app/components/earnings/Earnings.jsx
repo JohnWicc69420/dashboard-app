@@ -14,7 +14,7 @@ export default function Earnings() {
           alt=""
         />
         <div
-          className="absolute flex flex-col h-full\
+          className="absolute flex flex-col h-full
          w-full top-0 left-0 pt-5 md:pt-7 px-5"
         >
           <div className="flex justify-between w-full">
